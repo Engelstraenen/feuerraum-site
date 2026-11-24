@@ -1,0 +1,17 @@
+{
+ "flamme": {
+  "src": "flamme",
+  "w": 1284,
+  "h": 716
+ },
+ "oefen": {
+  "src": "showroom",
+  "w": 854,
+  "h": 480
+ },
+ "karriere": {
+  "src": "karriere",
+  "w": 1344,
+  "h": 768
+ }
+}
