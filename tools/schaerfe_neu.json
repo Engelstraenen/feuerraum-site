@@ -1,0 +1,26 @@
+{
+ "hero": {
+  "px": [
+   2560,
+   1440
+  ],
+  "lap_vorher": 453,
+  "lap_nachher": 1004
+ },
+ "explode": {
+  "px": [
+   2560,
+   1440
+  ],
+  "lap_vorher": 234,
+  "lap_nachher": 458
+ },
+ "stil": {
+  "px": [
+   2560,
+   1440
+  ],
+  "lap_vorher": 812,
+  "lap_nachher": 1757
+ }
+}

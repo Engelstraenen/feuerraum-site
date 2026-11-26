@@ -35,6 +35,8 @@ gh (Engelstraenen), sjinn in Chrome eingeloggt.
 - keine
 
 ## 9. Entschieden
+- 26.11.2026 (Eugen): NEUBAU. Storyboard 2 „Ein Ofen. Sieben Schichten.“ (Kalkweiß #efebe5 + Pflaume #5a2346) gewählt = verbindlich (konzepte/neu/2-einzelteile.png). Alte FR4-Seite wird ersetzt.
+- 26.11.2026 (Eugen): Seite muss so ausgearbeitet sein, dass man sie echten Kaminbauern (Ofenbauer: Kachel-/Grundofen, Heizkamin) UND Kaminverkäufern (Kaminöfen aus der Ausstellung) schicken kann: beide Wege auf der Seite, Personalisierung per ?firma=&ort=&typ=handel|bau.
 - 24.11.2026: Video-Drafts auf Dreamina Seedance 2.5 720P Unlimited (Wächter `FRW` im Dreamina-Tab, klickt nur bei Schalter an + Preis 0). Download über Hover → „Download“ → ~/Downloads (Eugens OK 24.11.). Drafts: FRV1 Flamme (Dreamina), FRV2 Showroom (Wan 480p), FRV3 Karriere (MiniMax 768p).
 - 24.11.2026: Dateien aus dem side-session-notes-Ordner kamen bei Eugen NICHT an (Videos/Bilder „nichts geschickt“). Vorschauen nach `vorschau/` im Projektordner (= Arbeitsordner der Sitzung) legen und von dort schicken, dazu direkte Links.
 - 23.11.2026 (Eugen „top“): Mix-Storyboard FR4 (konzepte/4-mix.png) bestätigt = verbindliche Vorlage, Frame für Frame bauen.

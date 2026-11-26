@@ -2,298 +2,344 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>FEUERRAUM Kamin- und Ofenstudio (Demo)</title>
-<meta name="description" content="Demo von PROJEKT EX: Website für ein erfundenes Kamin- und Ofenstudio mit eigenen Ofenbauern.">
-<meta name="theme-color" content="#121213">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121213'/%3E%3Cpath d='M32 10c4 10 14 14 14 28a14 14 0 0 1-28 0c0-8 5-11 7-17 2 5 5 7 7 7 0-6-2-12 0-18z' fill='%23ff6a1a'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="assets/css/style.css?v=1795502594">
-<script>try{fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():''}).then(function(v){v=v.trim();if(v&&v!=='1795502594'&&location.search.indexOf('v='+v)<0){var u=new URL(location.href);u.searchParams.set('v',v);location.replace(u.href)}}).catch(function(){})}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FEUERRAUM – Kaminöfen, Kachelöfen und Ofenbau</title>
+<meta name="description" content="Kaminöfen aus der Ausstellung und Kachel- oder Grundöfen aus eigener Werkstatt. Beratung, Planung, Einbau und Wartung aus einer Hand.">
+<meta name="theme-color" content="#efebe5">
+<link rel="preload" href="assets/fonts/fraunces-latin-300-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css?v=1">
 </head>
 <body>
-<div class="demo"><span class="for">So könnte das für <span data-firma></span> aussehen. </span><b>Demo von PROJEKT EX</b><span class="long">: erfundener Betrieb, alle Personen, Zahlen und Stimmen sind Beispiele.</span><span class="short"> · erfundener Betrieb</span></div>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
 
-<header class="nav">
-  <a class="nav-brand" href="#top" aria-label="FEUERRAUM, nach oben"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1.6 4 5.5 5.6 5.5 11a5.5 5.5 0 0 1-11 0c0-3.2 2-4.4 2.8-6.7.8 2 2 2.8 2.8 2.8 0-2.4-.8-4.7-.1-7.1z"/></svg>FEUERRAUM</a>
-  <nav class="nav-links" aria-label="Kapitel">
-    <a href="#oefen">Öfen</a><a href="#rechner">Rechner</a><a href="#passt">Passt er rein?</a><a href="#service">Service</a><a href="#karriere">Karriere</a><a href="#bewertungen">Bewertungen</a><a href="#besuch">Ausstellung</a>
+<header class="kopf" id="kopf">
+  <a class="logo" href="#start" data-firma>FEUERRAUM</a>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="#schichten">Schichten</a>
+    <a href="#stil">Stil</a>
+    <a href="#rechner">Planung</a>
+    <a href="#wege">Ofenbau</a>
+    <a href="#handwerk">Karriere</a>
+    <a href="#ausstellung">Ausstellung</a>
   </nav>
-  <button class="nav-cta" data-open="termin">Beratung</button>
-  <button class="nav-menu" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span></button>
+  <a class="kopf-cta" href="#termin">Termin</a>
+  <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span></button>
 </header>
-<nav class="menu" aria-label="Kapitel (Menü)">
-  <a href="#flamme">Erste Flamme</a><a href="#oefen">Öfen</a><a href="#rechner">Leistungsrechner</a><a href="#passt">Passt er rein?</a><a href="#service">Ofen-Check</a><a href="#planen">Früh planen</a><a href="#karriere">Karriere</a><a href="#bewerben">Bewerben</a><a href="#bewertungen">Bewertungen</a><a href="#besuch">Ausstellung</a>
-</nav>
-<div class="dots" aria-hidden="true"></div>
+<div class="menue" id="menue" hidden>
+  <nav aria-label="Menü">
+    <a href="#schichten"><i>01</i>Sieben Schichten</a>
+    <a href="#stil"><i>02</i>Ihr Stil</a>
+    <a href="#feuer"><i>03</i>Brennraum</a>
+    <a href="#speicher"><i>04</i>Speicherwärme</a>
+    <a href="#platz"><i>05</i>Passt er rein?</a>
+    <a href="#rechner"><i>06</i>Ofenberater</a>
+    <a href="#wege"><i>07</i>Kaufen oder bauen</a>
+    <a href="#handwerk"><i>08</i>Karriere</a>
+    <a href="#ausstellung"><i>09</i>Ausstellung &amp; Termin</a>
+  </nav>
+</div>
 
-<main id="top">
+<div class="faden" aria-hidden="true"><i id="fadenFill"></i></div>
 
-<!-- 1 FILM: Erste Flamme (kalt → Streichholz → warm) -->
-<section class="ch film" id="flamme" style="--h:330vh">
-  <div class="stage">
-    <div class="media">
-      <img class="still" data-img="f1-kalt" alt="Wohnzimmer zur blauen Stunde, der Kaminofen ist noch kalt">
-      <img class="still warm" data-img="f1-warm" alt="">
-      <video class="vid" muted playsinline preload="auto" data-src="assets/vid/flamme"></video>
-    </div>
-    <div class="shade"></div>
-    <div class="beat b-hero">
-      <p class="kicker">Kamin- und Ofenstudio · eigene Ofenbauer</p>
-      <h1>Kalt?<br>Scroll mal.</h1>
-      <p class="hint"><span></span>Scrollen</p>
-    </div>
-    <div class="beat b-2"><h2>Die erste Flamme.</h2><p class="sub">Geplant, gesetzt und angeschlossen von unseren Ofenbauern.</p></div>
-    <div class="beat b-3"><h2>Wärme,<br>die man sieht.</h2></div>
-    <div class="glow"></div>
-  </div>
-</section>
+<main id="inhalt">
 
-<!-- 2 FILM + MOTION: Showroom, horizontale Fahrt durch fünf Feuerarten -->
-<section class="ch ride" id="oefen" style="--h:420vh">
-  <div class="stage">
-    <div class="media">
-      <img class="still" data-img="s-showroom" alt="Dunkler Showroom mit vielen brennenden Öfen">
-      <video class="vid" muted playsinline preload="auto" data-src="assets/vid/showroom"></video>
+<!-- 1 + 2: Held und Explosion (eine Bühne) -->
+<section class="buehne" id="start" aria-label="Ein Ofen. Sieben Schichten.">
+  <div class="buehne-pin">
+    <div class="b-bild">
+      <img class="b-ganz" src="assets/img/hero.webp" srcset="assets/img/hero-m.webp 1280w, assets/img/hero.webp 3840w" sizes="100vw" alt="Moderner Kaminofen mit Feuer auf einem Steinsockel in einem hellen Raum" fetchpriority="high">
+      <img class="b-explo" src="assets/img/explode.webp" srcset="assets/img/explode-m.webp 1280w, assets/img/explode.webp 3840w" sizes="100vw" alt="Derselbe Ofen in seine Einzelteile zerlegt" loading="eager">
+      <video class="b-film" muted playsinline preload="auto" hidden></video>
     </div>
-    <div class="shade dark"></div>
-    <div class="ride-head">
-      <p class="kicker">Ausstellung · über 40 Öfen in Betrieb</p>
-      <h2>Welches Feuer<br>passt zu dir?</h2>
-    </div>
-    <div class="track" role="list">
-      <article class="card" role="listitem" data-k="0"><div class="pic"><img class="still" data-img="o-kaminofen" alt="Freistehender schwarzer Kaminofen mit Holzfeuer"></div><h3>Kaminofen</h3><p>Freistehend, schnell gesetzt, echtes Holzfeuer.</p><button class="more">Mehr</button></article>
-      <article class="card" role="listitem" data-k="1"><div class="pic"><img class="still" data-img="o-kamineinsatz" alt="Rahmenloser Kamineinsatz in heller Wand"></div><h3>Kamineinsatz</h3><p>Fest in der Wand, Feuer wie ein Bild.</p><button class="more">Mehr</button></article>
-      <article class="card" role="listitem" data-k="2"><div class="pic"><img class="still" data-img="o-pelletofen" alt="Schlanker Pelletofen in Anthrazit"></div><h3>Pelletofen</h3><p>Läuft per Zeitplan, heizt automatisch.</p><button class="more">Mehr</button></article>
-      <article class="card" role="listitem" data-k="3"><div class="pic"><img class="still" data-img="o-kachelofen" alt="Moderner Kachelofen mit dunkelgrünen Kacheln und Ofenbank"></div><h3>Kachelofen</h3><p>Speichert Wärme stundenlang. Mit Bank.</p><button class="more">Mehr</button></article>
-      <article class="card" role="listitem" data-k="4"><div class="pic"><img class="still" data-img="o-gaskamin" alt="Linearer Gaskamin in dunkler Wand"></div><h3>Gaskamin</h3><p>Flamme per Knopfdruck, kein Holz schleppen.</p><button class="more">Mehr</button></article>
-    </div>
-    <div class="ride-bar"><i></i><span class="ride-n">01 / 05</span></div>
-  </div>
-</section>
-
-<!-- 3 MOTION: Leistungsrechner (Wohnsituation → Raumgröße → Brennstoff → kW) -->
-<section class="blk calc" id="rechner">
-  <div class="wrap">
-    <p class="kicker">Leistungsrechner · 30 Sekunden</p>
-    <h2 class="big">Wie wohnst du?</h2>
-    <div class="tiles" role="radiogroup" aria-label="Wohnsituation">
-      <button class="tile" role="radio" aria-checked="false" data-f="0.1"><img class="still" data-img="q-altbau" alt=""><span>Altbau</span></button>
-      <button class="tile on" role="radio" aria-checked="true" data-f="0.055"><img class="still" data-img="q-neubau" alt=""><span>Neubau</span></button>
-      <button class="tile" role="radio" aria-checked="false" data-f="0.075"><img class="still" data-img="q-wohnung" alt=""><span>Wohnung</span></button>
-    </div>
-    <div class="calc-grid">
-      <div class="plan-box">
-        <svg class="plan" viewBox="0 0 400 280" aria-hidden="true">
-          <defs><filter id="gl" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-          <g class="room" filter="url(#gl)">
-            <rect class="walls" x="20" y="20" width="360" height="240" rx="4"/>
-            <line x1="200" y1="20" x2="200" y2="120"/><line x1="20" y1="150" x2="140" y2="150"/>
-            <path d="M200 160 v100"/><path d="M140 150 a30 30 0 0 1 30 30" class="door"/>
-            <rect x="300" y="200" width="44" height="40" rx="3" class="stove"/>
-          </g>
-          <circle class="heat" cx="322" cy="220" r="40"/>
-        </svg>
-        <label class="slider"><span>Raumgröße <b class="m2">45</b> m²</span>
-          <input type="range" min="15" max="120" step="1" value="45" aria-label="Raumgröße in Quadratmetern">
-        </label>
-      </div>
-      <div class="result">
-        <img class="still res-img" data-img="r-ofen" alt="Moderner grauer Kaminofen mit Feuer">
-        <div class="res-txt">
-          <p class="kicker">Dein Richtwert</p>
-          <p class="kw"><b class="kw-n">4</b><span> kW</span></p>
-          <p class="sub res-line">passt zu 45 m² im Neubau</p>
-          <button class="btn" data-open="termin">Beratung anfragen</button>
-        </div>
+    <div class="held-text">
+      <p class="vorzeile" data-ort-zeile>Kaminöfen · Kachelöfen · Ofenbau</p>
+      <h1 class="h1"><span>Ein Ofen.</span><span>Sieben</span><span>Schichten.</span></h1>
+      <p class="lead" data-typ-lead>Mehr als Wärme. Ein durchdachtes Ganzes – ausgesucht in unserer Ausstellung oder gebaut in unserer Werkstatt.</p>
+      <div class="held-wege">
+        <a class="knopf" href="#schichten" data-scroll-explo>Die Schichten entdecken <b>→</b></a>
+        <a class="knopf hell" href="#wege">Kaufen oder bauen lassen?</a>
       </div>
     </div>
-    <h3 class="mid">Holz, Pellet oder Gas?</h3>
-    <div class="fuel" role="tablist" aria-label="Brennstoff">
-      <button role="tab" class="on" aria-selected="true" data-k="holz">Holz</button><button role="tab" aria-selected="false" data-k="pellet">Pellet</button><button role="tab" aria-selected="false" data-k="gas">Gas</button>
+    <ol class="held-liste" aria-label="Die sieben Schichten">
+      <li>Feuer</li><li>Material</li><li>Technik</li><li>Speicherung</li><li>Design</li><li>Lebensraum</li><li>Zukunft</li>
+    </ol>
+    <div class="explo-labels" id="schichten" aria-label="Die Schichten eines Ofens">
+      <svg class="explo-linien" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <a class="lab" data-s="abgas" data-x="47.4" data-y="4.6" data-side="l" href="schicht.html?s=abgas"><b>Abgasstutzen</b><span>Sauber verbunden</span></a>
+      <a class="lab" data-s="speicher" data-x="43.8" data-y="20" data-side="l" href="schicht.html?s=speicher"><b>Wärmespeichersteine</b><span>Für lang anhaltende Wärme</span></a>
+      <a class="lab" data-s="konvektion" data-x="56.4" data-y="34" data-side="r" href="schicht.html?s=konvektion"><b>Konvektionskanäle</b><span>Lenken die Wärme</span></a>
+      <a class="lab" data-s="verkleidung" data-x="64.2" data-y="48" data-side="r" href="schicht.html?s=verkleidung"><b>Verkleidung</b><span>In Ihrem Stil</span></a>
+      <a class="lab" data-s="glas" data-x="36.6" data-y="60" data-side="l" href="schicht.html?s=glas"><b>Glasfront</b><span>Klare Sicht aufs Wesentliche</span></a>
+      <a class="lab" data-s="brennraum" data-x="53" data-y="66" data-side="r" href="schicht.html?s=brennraum"><b>Brennraum</b><span>Mit Schamotteauskleidung</span></a>
+      <a class="lab" data-s="sockel" data-x="43.8" data-y="88" data-side="l" href="schicht.html?s=sockel"><b>Sockel</b><span>Stabil und langlebig</span></a>
     </div>
-    <div class="bars">
-      <div class="bar"><span>Knistern und Flammenbild</span><i><b></b></i></div>
-      <div class="bar"><span>Automatik und Zeitplan</span><i><b></b></i></div>
-      <div class="bar"><span>Wenig Aufwand im Alltag</span><i><b></b></i></div>
-      <div class="bar"><span>Lagerplatz für Brennstoff</span><i><b></b></i></div>
-    </div>
-    <p class="fuel-txt sub"></p>
-    <p class="note">Richtwert für die Planung. Die genaue Heizlast rechnet dein Ofenbauer beim Aufmaß.</p>
+    <p class="explo-hinweis">Antippen für Details</p>
+    <div class="scroll-zeichen" aria-hidden="true"><span></span></div>
   </div>
 </section>
 
-<!-- 4 MOTION: Passt er rein? Foto + Ofen reinziehen -->
-<section class="blk passt" id="passt">
-  <div class="wrap two">
-    <div class="passt-l">
-      <p class="kicker">Ohne Termin vor Ort</p>
-      <h2 class="big">Passt er rein?</h2>
-      <ol class="how">
-        <li><b>1</b>Foto von der Ecke machen.</li>
-        <li><b>2</b>Ofen reinziehen, Größe anpassen.</li>
-        <li><b>3</b>Abschicken. Der Ofenbauer meldet sich mit Abständen und Anschluss.</li>
-      </ol>
-      <div class="passt-btns">
-        <label class="btn ghost file">Eigenes Foto<input type="file" accept="image/*" hidden></label>
-        <button class="btn" data-open="foto">Foto schicken</button>
+<!-- 3: Ihr Stil (Konfigurator) -->
+<section class="stil" id="stil" aria-labelledby="stil-h">
+  <div class="stil-bild">
+    <img src="assets/img/stil.webp" srcset="assets/img/stil-m.webp 1280w, assets/img/stil.webp 2560w" sizes="100vw" alt="Drei gleiche Öfen mit Speckstein-, Keramik- und Stahlverkleidung" loading="lazy">
+    <div class="stil-maske" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+  <div class="stil-text">
+    <h2 class="h2" id="stil-h">Ein Ofen.<br>Ihr Stil.</h2>
+    <p>Gleiche Technik. Verschiedene Charaktere.</p>
+    <div class="stil-wahl" role="radiogroup" aria-label="Verkleidung wählen">
+      <button role="radio" aria-checked="true" data-m="0"><i class="chip speck"></i><b>Speckstein</b><span>Natürlich. Zeitlos.</span></button>
+      <button role="radio" aria-checked="false" data-m="1"><i class="chip keramik"></i><b>Keramik</b><span>Klar. Elegant.</span></button>
+      <button role="radio" aria-checked="false" data-m="2"><i class="chip stahl"></i><b>Stahl</b><span>Pur. Charakterstark.</span></button>
+    </div>
+    <dl class="stil-werte" id="stilWerte"></dl>
+    <a class="link" href="schicht.html?s=verkleidung">Alles über Verkleidungen →</a>
+  </div>
+</section>
+
+<!-- 4: Brennraum -->
+<section class="feuer" id="feuer" aria-labelledby="feuer-h">
+  <div class="feuer-bild">
+    <img src="assets/img/feuer.webp" srcset="assets/img/feuer-m.webp 1280w, assets/img/feuer.webp 2560w" sizes="(max-width: 900px) 100vw, 60vw" alt="Brennraum mit Flammen und Schamotteauskleidung" loading="lazy">
+    <svg class="luft" viewBox="0 0 600 600" aria-hidden="true">
+      <defs><marker id="pf" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+      <path class="luft-p" d="M80 540 C 200 560, 380 560, 520 540" marker-end="url(#pf)"/>
+      <path class="luft-s" d="M520 90 C 380 60, 220 60, 90 90" marker-end="url(#pf)"/>
+      <path class="luft-s2" d="M560 300 C 620 300, 660 300, 700 300" marker-end="url(#pf)"/>
+    </svg>
+    <div class="luft-karte primaer"><b>Primärluft</b><span>Von unten, für eine saubere und kontrollierte Vorverbrennung.</span></div>
+  </div>
+  <div class="feuer-text">
+    <p class="vorzeile">Schicht 03 · Technik</p>
+    <h2 class="h2" id="feuer-h">Sekundärluft</h2>
+    <p>Vorgewärmte Luft strömt über die Scheibe und von hinten in die Flamme. Sie verbrennt die Holzgase ein zweites Mal – für weniger Emissionen und eine klare Scheibe.</p>
+    <div class="zahl-karte"><span>Wirkungsgrad</span><b>über <i data-zaehl="80">0</i> %</b></div>
+    <div class="bimsch">
+      <p class="mini">Grenzwerte 1. BImSchV Stufe 2 für Kaminöfen (seit 2015)</p>
+      <div class="balken"><span>Staub</span><i style="--w:40%"></i><em>0,04 g/m³</em></div>
+      <div class="balken"><span>Kohlenmonoxid</span><i style="--w:62%"></i><em>1,25 g/m³</em></div>
+      <div class="balken"><span>Mindestwirkungsgrad</span><i style="--w:73%"></i><em>73 %</em></div>
+      <p class="mini leise">Allgemeine Orientierung. Maßgeblich sind Typenschild und Prüfbericht des Herstellers.</p>
+    </div>
+    <a class="link" href="schicht.html?s=brennraum">So funktioniert der Brennraum →</a>
+  </div>
+</section>
+
+<!-- 5: Speicherwärme -->
+<section class="speicher" id="speicher" aria-labelledby="speicher-h">
+  <div class="speicher-bild"><img src="assets/img/speicher.webp" srcset="assets/img/speicher-m.webp 1280w, assets/img/speicher.webp 2560w" sizes="(max-width: 900px) 100vw, 45vw" alt="Gestapelte Specksteinblöcke" loading="lazy"></div>
+  <div class="speicher-text">
+    <h2 class="h2" id="speicher-h">Stein<br>speichert Zeit.</h2>
+    <p>Naturstein nimmt die Wärme des Feuers auf und gibt sie über viele Stunden gleichmäßig ab – auch lange nachdem die Flammen erloschen sind.</p>
+  </div>
+  <figure class="kurve">
+    <figcaption>Wärmeabgabe nach dem letzten Nachlegen <span class="mini leise">(typischer Verlauf)</span></figcaption>
+    <svg viewBox="0 0 520 300" role="img" aria-label="Diagramm: Stahlofen gibt Wärme in rund 2 Stunden ab, Speicherofen über rund 10 Stunden">
+      <g class="achsen">
+        <line x1="50" y1="20" x2="50" y2="250"/><line x1="50" y1="250" x2="500" y2="250"/>
+        <text x="40" y="24">100 %</text><text x="40" y="137">50 %</text><text x="40" y="254">0 %</text>
+        <text x="50" y="275">0</text><text x="140" y="275">2</text><text x="230" y="275">4</text><text x="320" y="275">6</text><text x="410" y="275">8</text><text x="495" y="275">10 h</text>
+      </g>
+      <path class="k-stahl" d="M50 25 C 90 40, 120 170, 160 225 S 260 248, 500 249"/>
+      <path class="k-stein-f" d="M50 60 C 120 40, 200 70, 300 130 S 450 225, 500 238 L500 250 L50 250 Z"/>
+      <path class="k-stein" d="M50 60 C 120 40, 200 70, 300 130 S 450 225, 500 238"/>
+      <g class="k-leg"><circle cx="300" cy="30" r="5" class="dot-stahl"/><text x="312" y="34">Stahlofen</text><circle cx="300" cy="52" r="5" class="dot-stein"/><text x="312" y="56">mit Speichersteinen</text></g>
+    </svg>
+  </figure>
+  <ul class="symbole">
+    <li><b>Lange Wärmeabgabe</b><span>Mehrere Stunden nach dem Feuer</span></li>
+    <li><b>Angenehmes Raumklima</b><span>Hoher Strahlungsanteil, weniger Staubaufwirbelung</span></li>
+    <li><b>Natürlich &amp; langlebig</b><span>Stein altert nicht, er bekommt Charakter</span></li>
+  </ul>
+  <a class="link" href="schicht.html?s=speicher">Speichersteine im Detail →</a>
+</section>
+
+<!-- 6: Passt er rein? -->
+<section class="platz" id="platz" aria-labelledby="platz-h">
+  <div class="platz-bild">
+    <img id="platzFoto" src="assets/img/raum.webp" srcset="assets/img/raum-m.webp 1280w, assets/img/raum.webp 2560w" sizes="100vw" alt="Wohnzimmer mit Kaminofen in der Ecke" loading="lazy">
+    <svg class="masse" viewBox="0 0 100 56.25" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g class="mass m1"><line x1="54" y1="9" x2="54" y2="20"/><text x="55.4" y="13.5">80 cm</text></g>
+      <g class="mass m2"><line x1="36" y1="36" x2="48" y2="36"/><text x="38.5" y="34.6">50 cm</text></g>
+      <g class="mass m3"><line x1="61" y1="36" x2="68" y2="36"/><text x="62" y="34.6">20 cm</text></g>
+    </svg>
+    <div class="probe" id="probe" hidden>
+      <img id="probeOfen" src="assets/img/ofen-frei.png" alt="Ofen zum Verschieben" draggable="false">
+      <span class="probe-griff" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="platz-text">
+    <h2 class="h2" id="platz-h">Passt er rein?</h2>
+    <p>Wir helfen Ihnen bei der Planung – für ein sicheres und schönes Zuhause. Probieren Sie es mit einem Foto Ihres Raums aus. Das Foto bleibt auf Ihrem Gerät.</p>
+    <div class="platz-knoepfe">
+      <label class="knopf"><input type="file" accept="image/*" id="platzUpload" class="sr">Foto vom Raum wählen</label>
+      <button class="knopf hell" id="platzReset" hidden>Beispielraum</button>
+    </div>
+    <p class="mini" id="platzTipp" hidden>Ofen mit dem Finger verschieben, an der Ecke größer oder kleiner ziehen.</p>
+    <ul class="regeln">
+      <li><b>50 cm</b> nicht brennbarer Boden vor der Feuerraumöffnung, 30 cm seitlich</li>
+      <li><b>80 cm</b> Strahlungsbereich vor der Scheibe frei von Möbeln und Vorhängen</li>
+      <li><b>20 cm</b> typischer Abstand zu brennbaren Wänden – genau steht es auf dem Typenschild</li>
+    </ul>
+    <a class="link" href="schicht.html?s=planung">Beratung anfragen →</a>
+  </div>
+</section>
+
+<!-- 7: Ofenberater -->
+<section class="rechner" id="rechner" aria-labelledby="rechner-h">
+  <div class="rechner-links">
+    <h2 class="h2" id="rechner-h">Welcher Ofen<br>passt zu Ihnen?</h2>
+    <p>In wenigen Schritten zur richtigen Leistung. Ein zu großer Ofen ist kein Vorteil: Er läuft gedrosselt, verrußt und heizt den Raum über.</p>
+    <label class="regler"><span>Raumgröße <output id="rM2">42 m²</output></span>
+      <input type="range" id="rqm" min="10" max="120" step="1" value="42" aria-label="Raumgröße in Quadratmetern"></label>
+    <div class="regler-skala"><span>10 m²</span><span>120 m²</span></div>
+    <fieldset class="haus">
+      <legend>Gebäude</legend>
+      <label><input type="radio" name="haus" value="50" checked><span>Neubau</span></label>
+      <label><input type="radio" name="haus" value="80"><span>Saniert</span></label>
+      <label><input type="radio" name="haus" value="120"><span>Altbau</span></label>
+    </fieldset>
+  </div>
+  <div class="rechner-karte">
+    <p class="mini">Empfohlene Heizleistung</p>
+    <p class="kw"><b id="rKw">2,1</b> kW</p>
+    <p class="mini leise" id="rSatz">Für 42 m² im Neubau.</p>
+    <div class="brenn" role="tablist" aria-label="Brennstoff">
+      <button role="tab" aria-selected="true" data-b="holz">Holz</button>
+      <button role="tab" aria-selected="false" data-b="pellet">Pellet</button>
+      <button role="tab" aria-selected="false" data-b="gas">Gas</button>
+    </div>
+    <div class="brenn-bild" aria-hidden="true"><img src="assets/img/brennstoffe-m.webp" alt="" loading="lazy"></div>
+    <div class="vgl" id="rVgl"></div>
+    <p class="r-tipp" id="rTipp"></p>
+    <a class="knopf" href="#termin" id="rCta">Diese Auswahl besprechen</a>
+  </div>
+</section>
+
+<!-- Zwei Wege: Handel + Ofenbau -->
+<section class="wege" id="wege" aria-labelledby="wege-h">
+  <div class="wege-kopf">
+    <p class="vorzeile">Zwei Wege zum eigenen Feuer</p>
+    <h2 class="h2" id="wege-h">Aussuchen oder<br>bauen lassen.</h2>
+  </div>
+  <div class="wege-spalten">
+    <article class="weg" data-weg="handel">
+      <img src="assets/img/ausstellung-m.webp" alt="Helle Ausstellung mit brennenden Öfen und Beratung" loading="lazy">
+      <h3>Aus der Ausstellung</h3>
+      <p>Kaminöfen, Pelletöfen und Gaskamine – brennend vorgeführt. Sie sehen die Flamme, hören den Ofen und fühlen die Wärme, bevor Sie sich entscheiden.</p>
+      <ul><li>Öfen live im Betrieb vergleichen</li><li>Lieferung, Anschluss und Einweisung</li><li>Einbau meist an einem Tag</li></ul>
+      <a class="link" href="schicht.html?s=ausstellung">Zur Ausstellung →</a>
+    </article>
+    <article class="weg" data-weg="bau">
+      <img src="assets/img/kachelofen-m.webp" alt="Moderner Kachelofen mit Sitzbank in einem hellen Wohnraum" loading="lazy">
+      <h3>Gebaut von unseren Ofenbauern</h3>
+      <p>Kachelöfen, Grundöfen und Heizkamine, geplant für Ihren Raum und vor Ort Schicht für Schicht gesetzt. Ein Unikat, das Jahrzehnte hält.</p>
+      <ul><li>Planung mit Zeichnung und Heizlast</li><li>Grundofen, Kachelofen, Heizkamin</li><li>Meisterbetrieb mit eigener Werkstatt</li></ul>
+      <a class="link" href="schicht.html?s=ofenbau">Zum Ofenbau →</a>
+    </article>
+  </div>
+  <div class="ablauf" id="ablauf" aria-label="Ablauf in sechs Schritten">
+    <div class="ablauf-spur" id="ablaufSpur">
+      <div class="schritt"><i>1</i><b>Beratung</b><span>In der Ausstellung oder mit Fotos Ihres Raums.</span></div>
+      <div class="schritt"><i>2</i><b>Aufmaß &amp; Schornstein</b><span>Wir messen, prüfen Zug und Querschnitt des Schornsteins.</span></div>
+      <div class="schritt"><i>3</i><b>Abstimmung</b><span>Vorab mit dem bevollmächtigten Bezirksschornsteinfeger.</span></div>
+      <div class="schritt"><i>4</i><b>Einbau</b><span>Kaminofen meist an einem Tag, gebaute Öfen in einigen Tagen.</span></div>
+      <div class="schritt foto"><img src="assets/img/abnahme-m.webp" alt="Schornsteinfeger misst mit digitalem Abgasmessgerät" loading="lazy"><i>5</i><b>Abnahme</b><span>Der Schornsteinfeger nimmt die Anlage vor dem ersten Feuer ab.</span></div>
+      <div class="schritt"><i>6</i><b>Erstes Feuer &amp; Wartung</b><span>Einweisung beim ersten Anheizen, danach jährlicher Service.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8: Handwerk / Karriere -->
+<section class="handwerk" id="handwerk" aria-labelledby="hw-h">
+  <div class="hw-bild">
+    <img src="assets/img/werkstatt.webp" srcset="assets/img/werkstatt-m.webp 1280w, assets/img/werkstatt.webp 2560w" sizes="100vw" alt="Ofenbauerin setzt einen Speckstein-Ring auf einen Ofen" loading="lazy">
+    <video class="hw-film" muted playsinline loop preload="none" hidden></video>
+  </div>
+  <div class="hw-text">
+    <h2 class="h2" id="hw-h">Wir bauen ihn<br>wieder zusammen.<br>Mit dir?</h2>
+    <p>Echtes Handwerk. Moderne Technik. Und die Freude, die bleibt, wenn das erste Feuer in einem Ofen brennt, den du gebaut hast.</p>
+    <a class="knopf" href="#bewerbung">Bewerbung in 60 Sekunden</a>
+  </div>
+  <div class="kinetik" aria-label="Was wir bieten">
+    <p><span>Ausbildung zum</span><b>Ofen- und Luftheizungsbauer</b></p>
+    <p><span>Feste</span><b>Werkstatt-Crew</b></p>
+    <p><span>Jeden Tag ein</span><b>anderes Zuhause</b></p>
+    <p><span>Weiter zum</span><b>Meister</b></p>
+  </div>
+  <form class="bewerbung" id="bewerbung" aria-label="Bewerbung in 60 Sekunden" novalidate>
+    <div class="bw-schritt aktiv" data-i="0">
+      <p class="mini">Schritt 1 von 3</p><h3>Wer bist du?</h3>
+      <div class="optionen">
+        <label><input type="radio" name="wer" value="Azubi"><span>Schüler / Azubi</span></label>
+        <label><input type="radio" name="wer" value="Geselle"><span>Geselle / Fachkraft</span></label>
+        <label><input type="radio" name="wer" value="Quereinsteiger"><span>Quereinsteiger</span></label>
       </div>
-      <p class="note">Demo: Dein Foto bleibt auf deinem Gerät, nichts wird hochgeladen.</p>
     </div>
-    <div class="phone" data-need="e-ecke">
-      <div class="screen">
-        <img class="still room-img" data-img="e-ecke" alt="Leere Zimmerecke">
-        <img class="stove-x" data-img="x-ofen" data-png alt="Ofen zum Verschieben" draggable="false">
-        <div class="hud"><span>Ofen verschieben</span></div>
+    <div class="bw-schritt" data-i="1">
+      <p class="mini">Schritt 2 von 3</p><h3>Was liegt dir?</h3>
+      <div class="optionen">
+        <label><input type="checkbox" name="kann" value="Stein"><span>Mit Stein &amp; Kachel arbeiten</span></label>
+        <label><input type="checkbox" name="kann" value="Metall"><span>Metall &amp; Technik</span></label>
+        <label><input type="checkbox" name="kann" value="Kunden"><span>Mit Kunden sprechen</span></label>
       </div>
-      <label class="slider small"><span>Größe</span><input class="sz" type="range" min="40" max="160" value="100" aria-label="Ofengröße"></label>
     </div>
-  </div>
+    <div class="bw-schritt" data-i="2">
+      <p class="mini">Schritt 3 von 3</p><h3>Wie erreichen wir dich?</h3>
+      <label class="feld"><span>Vorname</span><input name="name" autocomplete="given-name"></label>
+      <label class="feld"><span>Telefon oder E-Mail</span><input name="kontakt" autocomplete="email"></label>
+    </div>
+    <div class="bw-fertig" hidden><h3>Danke!</h3><p>Wir melden uns innerhalb von zwei Werktagen. <span class="mini leise">(Demo: Es wurde nichts gesendet.)</span></p></div>
+    <div class="bw-leiste"><button type="button" class="knopf hell" data-bw="zurueck" hidden>Zurück</button><button type="button" class="knopf" data-bw="weiter">Weiter</button></div>
+    <a class="link" href="schicht.html?s=ausbildung">Alles zur Ausbildung →</a>
+  </form>
 </section>
 
-<!-- 5 MOTION: Ofen-Check -->
-<section class="ch pin" id="service" style="--h:240vh">
-  <div class="stage">
-    <div class="media"><img class="still" data-img="c-check" alt="Ofenbauer misst mit einem digitalen Abgasmessgerät"></div>
-    <div class="shade side"></div>
-    <div class="svc">
-      <p class="kicker">Service</p>
-      <h2>Ofen-Check<br>jedes Jahr.</h2>
-      <ul class="svc-list">
-        <li><b>Reinigen</b><span>Brennraum, Rauchrohr, Glas.</span></li>
-        <li><b>Dichtung</b><span>Tür und Glas, bevor es zieht.</span></li>
-        <li><b>Messung</b><span>Abgas und Zug, digital protokolliert.</span></li>
-      </ul>
-      <button class="btn" data-open="termin">Check buchen</button>
-    </div>
+<!-- 9: Ausstellung, Stimmen, Termin -->
+<section class="ausstellung" id="ausstellung" aria-labelledby="as-h">
+  <div class="as-bild"><img src="assets/img/abend.webp" srcset="assets/img/abend-m.webp 1280w, assets/img/abend.webp 3840w" sizes="100vw" alt="Brennender Kaminofen in einem warmen Wohnzimmer am Abend" loading="lazy"></div>
+  <div class="as-text">
+    <h2 class="h2" id="as-h">Echte Momente.<br>Lange Wärme.</h2>
+    <p>Besuchen Sie unsere Ausstellung und erleben Sie <span data-firma>FEUERRAUM</span> live – mit brennenden Öfen.</p>
+    <a class="knopf" href="#termin">Ausstellung besuchen →</a>
+    <ul class="haken"><li>Beratung vor Ort</li><li>Individuelle Planung</li><li>Viele Modelle im Feuerbetrieb</li></ul>
   </div>
-</section>
-
-<!-- 6 MOTION: Früh planen, Monatsleiste -->
-<section class="ch pin" id="planen" style="--h:240vh">
-  <div class="stage">
-    <div class="media"><img class="still" data-img="p-sommer" alt="Wohnzimmer im Sommer, Ofen kalt"></div>
-    <div class="shade bottom"></div>
-    <div class="plan-txt">
-      <h2>Jetzt planen statt<br>im Herbst warten.</h2>
-      <p class="sub">Im Sommer setzen wir in zwei Wochen. Ab Oktober wartet man.</p>
-    </div>
-    <div class="months" aria-label="Wartezeit nach Monat">
-      <div class="mo" data-w="2"><i><b></b></i><span>Juni</span><em>2 Wo.</em></div>
-      <div class="mo" data-w="2"><i><b></b></i><span>Juli</span><em>2 Wo.</em></div>
-      <div class="mo" data-w="3"><i><b></b></i><span>August</span><em>3 Wo.</em></div>
-      <div class="mo hot" data-w="6"><i><b></b></i><span>September</span><em>6 Wo.</em></div>
-      <div class="mo hot" data-w="10"><i><b></b></i><span>Oktober</span><em>10 Wo.</em></div>
-      <div class="mo hot" data-w="12"><i><b></b></i><span>November</span><em>12 Wo.</em></div>
-      <div class="mo hot" data-w="12"><i><b></b></i><span>Dezember</span><em>12 Wo.</em></div>
-    </div>
-    <button class="btn plan-btn" data-open="termin">Sommertermin sichern</button>
+  <div class="stimmen" aria-label="Kundenstimmen (Beispiele)">
+    <figure class="stimme aktiv"><blockquote>„Von der Beratung bis zum Einbau hat einfach alles gepasst.“</blockquote><figcaption>Beispiel · noch keine echte Bewertung</figcaption></figure>
+    <figure class="stimme"><blockquote>„Ein Ofen, der unser Zuhause spürbar verändert hat.“</blockquote><figcaption>Beispiel · noch keine echte Bewertung</figcaption></figure>
+    <figure class="stimme"><blockquote>„Der Ofenbauer hat jede Frage geduldig beantwortet und sauber gearbeitet.“</blockquote><figcaption>Beispiel · noch keine echte Bewertung</figcaption></figure>
   </div>
-</section>
-
-<!-- 7 FILM: Karriere -->
-<section class="ch film" id="karriere" style="--h:420vh">
-  <div class="stage">
-    <div class="media">
-      <img class="still" data-img="k-azubi" alt="Junger Ofenbauer montiert ein Rauchrohr">
-      <video class="vid" muted playsinline preload="auto" data-src="assets/vid/karriere"></video>
+  <form class="termin" id="termin" aria-label="Termin in der Ausstellung" novalidate>
+    <h3>Termin in der Ausstellung</h3>
+    <div class="tage" id="tage" role="radiogroup" aria-label="Wunschtag"></div>
+    <div class="optionen klein">
+      <label><input type="checkbox" name="i" value="Kaminofen"><span>Kaminofen</span></label>
+      <label><input type="checkbox" name="i" value="Pelletofen"><span>Pelletofen</span></label>
+      <label><input type="checkbox" name="i" value="Gaskamin"><span>Gaskamin</span></label>
+      <label><input type="checkbox" name="i" value="Kachelofen"><span>Kachel- / Grundofen</span></label>
+      <label><input type="checkbox" name="i" value="Wartung"><span>Wartung</span></label>
     </div>
-    <div class="shade"></div>
-    <div class="kin k1"><span>Feuer</span><span>machen</span><span>ist ein</span><span class="ac">Beruf.</span></div>
-    <div class="kin k2"><span>Feste Crew.</span></div>
-    <div class="kin k3"><span>Eigener</span><span>Firmenwagen.</span></div>
-    <div class="kin k4"><span>Meister?</span><span class="ac">Zahlen wir mit.</span></div>
-    <div class="kin k5"><span>Feierabend ist</span><span>Feierabend.</span></div>
-    <div class="tag">Ofenbauer · Azubi · Quereinstieg</div>
-  </div>
-</section>
-
-<!-- 8 Bewerbung in 60 Sekunden -->
-<section class="blk apply" id="bewerben">
-  <div class="wrap two">
-    <div>
-      <p class="kicker">Ohne Anschreiben, ohne Lebenslauf</p>
-      <h2 class="big">In 60 Sekunden<br>bewerben.</h2>
-      <div class="clock"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><circle class="arc" cx="60" cy="60" r="52"/></svg><b class="sec">60</b><span>Sekunden</span></div>
-    </div>
-    <div class="quiz" aria-live="polite">
-      <div class="q on" data-q="0"><p class="qn">1 / 4</p><h3>Was passt zu dir?</h3><div class="opts"><button>Ausbildung zum Ofenbauer</button><button>Ich bin schon Ofenbauer</button><button>Quereinstieg aus dem Handwerk</button></div></div>
-      <div class="q" data-q="1"><p class="qn">2 / 4</p><h3>Führerschein Klasse B?</h3><div class="opts"><button>Ja</button><button>Mache ich gerade</button><button>Noch nicht</button></div></div>
-      <div class="q" data-q="2"><p class="qn">3 / 4</p><h3>Ab wann?</h3><div class="opts"><button>Sofort</button><button>Ab Sommer</button><button>Später</button></div></div>
-      <form class="q" data-q="3"><p class="qn">4 / 4</p><h3>Wie erreichen wir dich?</h3>
-        <div class="fields">
-          <label>Vorname<input name="vn" autocomplete="given-name" required></label>
-          <label>Nachname<input name="nn" autocomplete="family-name" required></label>
-          <label>Wohnort<input name="ort" autocomplete="address-level2"></label>
-          <label>E-Mail<input name="mail" type="email" autocomplete="email"></label>
-          <label class="full">Handynummer<input name="tel" type="tel" autocomplete="tel" required></label>
-        </div>
-        <button class="btn" type="submit">Abschicken</button>
-      </form>
-      <div class="q" data-q="4"><h3>Danke!</h3><p class="sub">Demo: Hier würde sich der Meister innerhalb eines Tages melden.</p><button class="btn ghost again">Nochmal ansehen</button></div>
-    </div>
-  </div>
-</section>
-
-<!-- 9 Bewertungen (nur Beispiele) -->
-<section class="blk reviews" id="bewertungen">
-  <div class="wrap">
-    <p class="kicker">Bewertungen</p>
-    <h2 class="big">Was Kunden sagen.</h2>
-    <div class="rv-stage">
-      <figure class="rv on"><blockquote>„Ofenbauer kam zum Aufmaß, zwei Wochen später brannte das Feuer. Alles abgedeckt, nichts dreckig.“</blockquote><figcaption>Beispiel · noch keine echte Bewertung</figcaption></figure>
-      <figure class="rv"><blockquote>„Wir haben nur ein Foto geschickt und wussten am nächsten Tag, welcher Ofen in die Ecke passt.“</blockquote><figcaption>Beispiel · noch keine echte Bewertung</figcaption></figure>
-      <figure class="rv"><blockquote>„Der jährliche Check ist schnell gemacht, das Protokoll kommt direkt aufs Handy.“</blockquote><figcaption>Beispiel · noch keine echte Bewertung</figcaption></figure>
-    </div>
-    <div class="marquee" aria-hidden="true"><div class="mq-in"><span>Aufmaß vor Ort</span><span>Sauberer Einbau</span><span>Abnahme mit Schornsteinfeger</span><span>Ausstellung mit Feuer</span><span>Jährlicher Check</span><span>Aufmaß vor Ort</span><span>Sauberer Einbau</span><span>Abnahme mit Schornsteinfeger</span><span>Ausstellung mit Feuer</span><span>Jährlicher Check</span></div></div>
-    <p class="note">Hier stehen später die echten Google- und Tripadvisor-Bewertungen des Studios, mit Note, Anzahl und Link.</p>
-  </div>
-</section>
-
-<!-- 10 Ausstellung besuchen -->
-<section class="blk visit" id="besuch">
-  <div class="visit-img" data-need="b-beratung"><img class="still" data-img="b-beratung" alt="Beratungstisch mit Kachel- und Steinmustern im Showroom"></div>
-  <div class="wrap two">
-    <div>
-      <h2 class="big">Komm vorbei.<br>Das Feuer brennt schon.</h2>
-      <p class="sub">In der Ausstellung brennen die Öfen wirklich. Bring Maße und ein Foto mit.</p>
-      <dl class="hours"><dt>Mo bis Fr</dt><dd>9 bis 18 Uhr</dd><dt>Samstag</dt><dd>10 bis 14 Uhr</dd></dl>
-      <svg class="map" viewBox="0 0 400 220" aria-label="Lageplan (Beispiel)" role="img">
-        <path d="M0 160 C80 140 120 180 200 150 S320 90 400 110" class="road"/><path d="M60 0 C90 60 70 140 120 220" class="road"/><path d="M260 0 C250 70 300 150 280 220" class="road thin"/><path d="M0 60 H400" class="road thin"/>
-        <circle cx="236" cy="128" r="26" class="pin-glow"/><path d="M236 104c-9 0-16 7-16 16 0 12 16 26 16 26s16-14 16-26c0-9-7-16-16-16z" class="pin"/><circle cx="236" cy="120" r="5" fill="#121213"/>
-      </svg>
-    </div>
-    <div class="cal">
-      <h3>Ausstellung besuchen</h3>
-      <div class="cal-head"><button class="cal-prev" aria-label="Vorheriger Monat">‹</button><b class="cal-m"></b><button class="cal-next" aria-label="Nächster Monat">›</button></div>
-      <div class="cal-grid"></div>
-      <div class="slots"><button>10:00</button><button>12:00</button><button>15:00</button><button>17:00</button></div>
-      <button class="btn cal-go" disabled>Termin buchen</button>
-    </div>
-  </div>
+    <label class="feld"><span>Name</span><input name="name" autocomplete="name"></label>
+    <label class="feld"><span>Telefon</span><input name="tel" type="tel" autocomplete="tel"></label>
+    <button class="knopf" type="submit">Termin anfragen →</button>
+    <p class="termin-ok mini" hidden>Danke! Wir rufen Sie zur Bestätigung an. (Demo: Es wurde nichts gesendet.)</p>
+  </form>
 </section>
 
 </main>
 
-<footer class="foot">
-  <a class="nav-brand" href="#top">FEUERRAUM</a>
-  <p>Kamin- und Ofenstudio mit eigenen Ofenbauern. Erfundener Betrieb, Demo von PROJEKT EX.</p>
-  <p class="foot-l"><button data-open="impressum">Impressum</button><button data-open="impressum">Datenschutz</button></p>
+<footer class="fuss">
+  <div><b data-firma>FEUERRAUM</b><p>Kaminöfen · Kachelöfen · Ofenbau<br><span data-ort>Ausstellung in Ihrer Stadt</span></p></div>
+  <div><p>Ausstellung: Di–Fr 10–18 Uhr, Sa 10–14 Uhr<br>Beratung auch nach Vereinbarung</p></div>
+  <nav aria-label="Rechtliches"><a href="schicht.html?s=impressum">Impressum</a><a href="schicht.html?s=datenschutz">Datenschutz</a></nav>
+  <p class="demo">Demo-Webseite eines Musterbetriebs. Formulare senden nichts. Werte und Grenzwerte zur allgemeinen Orientierung.</p>
 </footer>
 
-<div class="sheet" hidden><button class="sheet-x" aria-label="Schließen">×</button><p class="kicker"></p><h3></h3><p class="txt"></p><ul class="pts"></ul><button class="btn" data-open="termin">In der Ausstellung ansehen</button></div>
-
-<dialog class="modal" id="m-termin"><form method="dialog"><button class="x" aria-label="Schließen" value="x">×</button><h3>Beratung anfragen</h3><p class="sub">Demo: Das Formular sendet nichts.</p>
-  <label>Name<input autocomplete="name" required></label><label>Telefon<input type="tel" autocomplete="tel" required></label>
-  <label>Worum geht's?<select><option>Neuer Ofen</option><option>Ofen-Check</option><option>Ausstellung besuchen</option></select></label>
-  <button class="btn" value="ok">Absenden</button></form></dialog>
-<dialog class="modal" id="m-foto"><form method="dialog"><button class="x" aria-label="Schließen" value="x">×</button><h3>Foto an den Ofenbauer</h3><p class="sub">Demo: Das Formular sendet nichts.</p>
-  <label>Name<input autocomplete="name" required></label><label>Telefon oder E-Mail<input required></label>
-  <label>Wo soll der Schornstein hin?<select><option>Schornstein vorhanden</option><option>Kein Schornstein</option><option>Weiß ich nicht</option></select></label>
-  <button class="btn" value="ok">Foto schicken</button></form></dialog>
-<dialog class="modal" id="m-impressum"><form method="dialog"><button class="x" aria-label="Schließen" value="x">×</button><h3>Impressum</h3><p class="sub">FEUERRAUM ist ein erfundener Betrieb. Diese Seite ist eine Demo von PROJEKT EX und zeigt, wie eine Website für ein Kamin- und Ofenstudio aussehen kann.</p></form></dialog>
-<div class="toast" hidden></div>
-
-<script src="assets/js/img.js?v=1795502594"></script>
-<script src="assets/js/app.js?v=1795502594"></script>
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/lenis.min.js"></script>
+<script src="assets/js/media.js?v=1"></script>
+<script src="assets/js/main.js?v=1"></script>
 </body>
 </html>

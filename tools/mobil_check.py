@@ -24,7 +24,7 @@ os.makedirs(OUT, exist_ok=True)
 VPS = [(390, 844), (360, 740), (430, 932), (844, 390)]
 if nur:
     VPS = [tuple(int(x) for x in v.split("x")) for v in nur]
-CH = ["flamme", "oefen", "rechner", "passt", "service", "planen", "karriere", "bewerben", "bewertungen", "besuch"]
+CH = ["start", "stil", "feuer", "speicher", "platz", "rechner", "wege", "handwerk", "ausstellung"]
 STEPS = [0, .125, .25, .375, .5, .625, .75, .875, 1]
 
 PROBE = r"""
@@ -106,30 +106,22 @@ for (w, h) in VPS:
         pg.evaluate("window.scrollTo(0,document.documentElement.scrollHeight)")
         snap("footer")
         pg.evaluate("window.scrollTo(0,0)")
-        pg.click(".nav-menu")
-        snap("menue")
-        pg.click(".nav-menu")
-        pg.evaluate("document.getElementById('m-termin').showModal()")
-        snap("modal")
-        pg.evaluate("document.getElementById('m-termin').close()")
-        pg.evaluate("(()=>{const s=document.getElementById('oefen');window.scrollTo(0,s.offsetTop+(s.offsetHeight-innerHeight)*.5)})()")
-        pg.wait_for_timeout(500)
-        try:
-            pg.click("#oefen .card.on", timeout=3000)
-            snap("oefen-info")
-            pg.click(".sheet-x", timeout=3000)
-        except Exception as e:
-            issues.setdefault("ofen-info nicht klickbar", []).append(str(e)[:60])
-        pg.evaluate("document.querySelector('#bewerben .quiz').scrollIntoView({block:'center'})")
+        pg.wait_for_timeout(300)
+        if pg.is_visible("#burger"):
+            pg.click("#burger"); snap("menue"); pg.click("#burger")
+        pg.evaluate("document.getElementById('bewerbung').scrollIntoView({block:'center'})")
         pg.wait_for_timeout(400)
-        for k in range(3):
+        for k in range(2):
             try:
-                pg.click("#bewerben .q.on .opts button", timeout=3000)
+                pg.click("#bewerbung .bw-schritt.aktiv label", timeout=2000); pg.click("[data-bw=weiter]", timeout=2000)
             except Exception:
                 break
-            pg.wait_for_timeout(500)
-        pg.evaluate("document.querySelector('#bewerben .quiz').scrollIntoView({block:'center'})")
-        snap("bewerben-formular")
+            pg.wait_for_timeout(400)
+        snap("bewerbung-formular")
+        for s in ["abgas", "ofenbau", "planung"]:
+            pg.goto(URL.rstrip("/") + "/schicht.html?s=" + s, wait_until="networkidle"); pg.wait_for_timeout(500)
+            snap("u-" + s + "-0")
+            pg.evaluate("window.scrollTo(0,document.documentElement.scrollHeight*0.45)"); snap("u-" + s + "-1")
         b.close()
     if errs:
         issues["konsole: " + " | ".join(errs[:3])] = ["seite"]
