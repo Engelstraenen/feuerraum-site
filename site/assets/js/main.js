@@ -72,9 +72,9 @@
   const heldText = $('.held-text'), liste = $('.held-liste'), labs = $$('.lab'), svg = $('.explo-linien');
   const hinweis = $('.explo-hinweis'), zeichen = $('.scroll-zeichen');
   let filmOk = false;
-  if (VID.explode) {
-    film.src = innerWidth < 900 && VID.explodeM ? VID.explodeM : VID.explode; film.hidden = false;
-    film.addEventListener('loadeddata', () => { filmOk = true; film.style.opacity = 1; }, { once: true });
+  if (VID.explode && innerWidth >= 900) {
+    film.src = VID.explode; film.hidden = false;
+    film.addEventListener('loadeddata', () => { filmOk = true; film.style.opacity = 1; buehne(buehneST ? buehneST.progress : 0); }, { once: true });
   }
   // Haarlinien
   const NS = 'http://www.w3.org/2000/svg';
@@ -109,7 +109,11 @@
     // 0–0.12 Held · 0.12–0.42 zerlegen · 0.42–0.92 Schichten · 0.92–1 Übergang zu Stil
     const e = gsap.utils.clamp(0, 1, (p - 0.1) / 0.32);
     const ee = gsap.parseEase('power2.inOut')(e);
-    if (filmOk && film.duration) { const t = ee * (film.duration - 0.05); if (Math.abs(film.currentTime - t) > 0.03) film.currentTime = t; ganz.style.opacity = 0; explo.style.opacity = 0; }
+    if (filmOk && film.duration && innerWidth >= 900) {
+      const t = ee * (film.duration - 0.05); if (Math.abs(film.currentTime - t) > 0.03) film.currentTime = t;
+      const tf = `translate(0, ${EX.ty * ee}px) scale(${1 + ee * (EX.s - 1)})`, x = gsap.utils.clamp(0, 1, (ee - 0.86) / 0.14);
+      film.style.transform = tf; explo.style.transform = tf; film.style.setProperty("--m", Math.min(1, ee * 1.6).toFixed(3)); ganz.style.opacity = 0; film.style.opacity = 1 - x; explo.style.opacity = x;
+    }
     else {
       // Kamerafahrt: der Ofen wandert von rechts (71 %) in die Mitte, während er sich zerlegt
       const mob = innerWidth < 900, sh = mob ? 0 : 21;
