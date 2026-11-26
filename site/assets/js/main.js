@@ -253,7 +253,7 @@
   if (VID.feuer) { const v = $('.feuer-film'); v.src = VID.feuer; v.hidden = false; ScrollTrigger.create({ trigger: '.feuer', start: 'top 85%', end: 'bottom 15%', onToggle: s => s.isActive ? v.play().catch(() => {}) : v.pause() }); }
 
   /* ---------- 8: Karriere-Film + Bewerbung ---------- */
-  if (VID.werkstatt) { const v = $('.hw-film'); v.src = VID.werkstatt; v.hidden = false; ScrollTrigger.create({ trigger: '.handwerk', start: 'top 80%', end: 'bottom top', onToggle: s => s.isActive ? v.play().catch(() => {}) : v.pause() }); }
+  if (VID.werkstatt) { const v = $('.hw-film'); v.src = VID.werkstatt; v.hidden = false; v.preload = 'auto'; const go = () => { v.currentTime = 0; v.play().catch(() => {}); }; ScrollTrigger.create({ trigger: '.hw-bild', start: 'top 60%', end: 'bottom 20%', onEnter: go, onEnterBack: go, onLeave: () => v.pause(), onLeaveBack: () => v.pause() }); }
   const bw = $('#bewerbung'), bwS = $$('.bw-schritt', bw), bwZ = $('[data-bw=zurueck]', bw), bwW = $('[data-bw=weiter]', bw); let bi = 0;
   function bwZeig() { bwS.forEach((s, i) => s.classList.toggle('aktiv', i === bi)); bwZ.hidden = bi === 0; bwW.textContent = bi === bwS.length - 1 ? 'Absenden' : 'Weiter'; }
   bwW.addEventListener('click', () => { if (bi < bwS.length - 1) { bi++; bwZeig(); } else { bwS.forEach(s => s.classList.remove('aktiv')); $('.bw-fertig', bw).hidden = false; $('.bw-leiste', bw).hidden = true; } });

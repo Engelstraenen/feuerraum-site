@@ -134,5 +134,13 @@
   ],
   "lap_vorher": 10,
   "lap_nachher": 15
+ },
+ "mat-stahl": {
+  "px": [
+   1376,
+   2048
+  ],
+  "lap_vorher": 123,
+  "lap_nachher": 306
  }
 }
