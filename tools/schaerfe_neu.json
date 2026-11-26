@@ -118,5 +118,21 @@
   ],
   "lap_vorher": 167,
   "lap_nachher": 373
+ },
+ "mat-speckstein": {
+  "px": [
+   1376,
+   2048
+  ],
+  "lap_vorher": 61,
+  "lap_nachher": 146
+ },
+ "mat-keramik": {
+  "px": [
+   1376,
+   2048
+  ],
+  "lap_vorher": 10,
+  "lap_nachher": 15
  }
 }
