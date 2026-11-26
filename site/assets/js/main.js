@@ -28,6 +28,10 @@
   /* ---------- Fehlende Bilder ausblenden (nie Platzhalter) ---------- */
   $$('img').forEach(im => im.addEventListener('error', () => { const box = im.closest('.weg,.schritt.foto,.brenn-bild'); (box && box.classList.contains('brenn-bild') ? box : im).style.display = 'none'; }));
 
+  /* Ablauf: fehlt ein Schritt-Foto, alle Schritt-Fotos ausblenden (einheitlich) */
+  (() => { const ims = $$('#ablauf .schritt.foto img'); const bad = () => $('#ablauf').classList.add('ohne-fotos');
+    ims.forEach(im => { if (im.complete && im.naturalWidth === 0) bad(); im.addEventListener('error', bad); }); })();
+
   /* ---------- Menü ---------- */
   const burger = $('#burger'), menue = $('#menue');
   const zu = () => { burger.setAttribute('aria-expanded', 'false'); menue.hidden = true; document.body.style.overflow = ''; };

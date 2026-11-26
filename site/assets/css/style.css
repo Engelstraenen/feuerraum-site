@@ -389,3 +389,5 @@ button{font:inherit;color:inherit;cursor:pointer}
 }
 @media (prefers-reduced-motion:reduce){.platte{opacity:1}.stapel{height:auto}.stapel-pin{position:relative;height:auto}}
 @media (min-width:900px){.b-film{-webkit-mask-image:linear-gradient(90deg,transparent,#000 calc(var(--m,0)*9%),#000 calc(100% - var(--m,0)*9%),transparent),linear-gradient(transparent,#000 calc(var(--m,0)*7%),#000 calc(100% - var(--m,0)*10%),transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 calc(var(--m,0)*9%),#000 calc(100% - var(--m,0)*9%),transparent),linear-gradient(transparent,#000 calc(var(--m,0)*7%),#000 calc(100% - var(--m,0)*10%),transparent);mask-composite:intersect}}
+
+#ablauf.ohne-fotos .schritt.foto img{display:none}
