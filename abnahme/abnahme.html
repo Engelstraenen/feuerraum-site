@@ -1,0 +1,82 @@
+<title>FEUERRAUM Abnahme</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: eine Spalte, je Storyboard-Panel ein Band: Storyboard | Laptop | Handy, darunter eine Zeile Abweichung */
+:root{
+  --bg:#efebe5; --panel:#f8f5f1; --line:#ddd3cc; --fg:#231c1f; --mut:#6b5f65; --acc:#5a2346; --ok:#3f6b3a; --warn:#a2611a;
+  --f-d:"Fraunces",Georgia,serif; --f-b:"Inter",system-ui,sans-serif; --f-m:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1d1518;--panel:#2a1f24;--line:#45343b;--fg:#f2ebe6;--mut:#bfaeb6;--acc:#e3b2cf;--ok:#9bc98f;--warn:#f0b36a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1d1518;--panel:#2a1f24;--line:#45343b;--fg:#f2ebe6;--mut:#bfaeb6;--acc:#e3b2cf;--ok:#9bc98f;--warn:#f0b36a;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 var(--f-b);margin:0}
+.wrap{max-width:1500px;margin:0 auto;padding-block:32px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:40px}
+h1,h2,h3{font-family:var(--f-d);font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(34px,5vw,60px);line-height:1;color:var(--acc)}
+h2{font-size:clamp(24px,3vw,34px);line-height:1.05}
+h3{font-size:20px}
+.top{display:grid;gap:16px}
+.status{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid var(--line);background:var(--panel);padding:7px 12px;font:500 13px/1.3 var(--f-m);border-radius:999px;margin:0}
+.pill.ok{color:var(--ok)}.pill.warn{color:var(--warn)}
+.links{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.links a{color:var(--acc);font-weight:600}
+.lead{max-width:70ch;margin:0;color:var(--mut)}
+.ch{display:grid;gap:12px;padding-top:22px;border-top:1px solid var(--line)}
+.ch-h{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.ch-h .n{font:600 13px/1 var(--f-m);color:var(--acc);letter-spacing:.1em}
+.grid{display:grid;grid-template-columns:1fr 1fr .32fr;gap:14px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+figure{margin:0;display:grid;gap:6px;min-width:0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line);cursor:zoom-in;background:#000;border-radius:4px}
+figcaption{font:500 12px/1.3 var(--f-m);color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.note{font-size:15px;background:var(--panel);border-left:3px solid var(--ok);padding:10px 14px;max-width:90ch;margin:0}
+.note.warn{border-left-color:var(--warn)}
+pre{background:var(--panel);border:1px solid var(--line);padding:14px;overflow-x:auto;font:13px/1.5 var(--f-m);margin:0;white-space:pre-wrap;word-break:break-all}
+button{font:600 14px var(--f-b);min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--fg);background:transparent;color:var(--fg);cursor:pointer}
+.lb{position:fixed;inset:0;background:rgba(10,4,5,.92);display:grid;place-items:center;z-index:20;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-width:100%;max-height:100%;object-fit:contain}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+</style>
+<div class="wrap">
+  <header class="top">
+    <p class="pill" style="justify-self:start">Kamin- und Ofenstudio FEUERRAUM · Demo-Seite · Stand <span id="stand"></span></p>
+    <h1>Abnahme: Storyboard neben fertiger Seite</h1>
+    <p class="lead">Storyboard 2 „Ein Ofen. Sieben Schichten.“ (Kalkweiß + Pflaume), Panel für Panel neben Laptop- und Handy-Aufnahme. Bild antippen für Vollbild. Für echte Betriebe personalisierbar: <code>?firma=Name&amp;ort=Stadt&amp;typ=handel</code> (Kaminverkauf) oder <code>typ=bau</code> (Ofenbau).</p>
+    <div class="links"><a href="https://engelstraenen.github.io/feuerraum-site/" target="_blank" rel="noopener">Seite öffnen</a><a href="https://engelstraenen.github.io/feuerraum-site/?firma=Kaminstudio%20Muster&amp;ort=Ulm&amp;typ=handel" target="_blank" rel="noopener">Beispiel Kaminverkauf</a><a href="https://engelstraenen.github.io/feuerraum-site/?firma=Ofenbau%20Muster&amp;ort=Freiburg&amp;typ=bau" target="_blank" rel="noopener">Beispiel Ofenbauer</a><a href="https://engelstraenen.github.io/feuerraum-site/schicht.html?s=brennraum" target="_blank" rel="noopener">Unterseite Brennraum</a><a href="https://github.com/Engelstraenen/feuerraum-site" target="_blank" rel="noopener">GitHub</a></div>
+    <div class="status" id="status"></div>
+  </header>
+  <main id="pages"></main>
+  <section class="ch">
+    <h2>Einbetten (projektex.de)</h2>
+    <pre id="embed">&lt;iframe src="https://engelstraenen.github.io/feuerraum-site/" style="width:100%;height:100vh;border:0" loading="lazy" title="Kamin- und Ofenstudio FEUERRAUM"&gt;&lt;/iframe&gt;</pre>
+    <div><button id="copy" type="button">Code kopieren</button></div>
+  </section>
+</div>
+<div class="lb" id="lb" hidden><img id="lbimg" alt=""></div>
+<script>
+const STAND = '26.11.2026';
+const STATUS = [['ok','16 Fotos (2× 4K, 14× 2K), alle nachgeschärft'],['warn','Filme: 0 von 2 (Explosion + Werkstatt warten auf den Videoplatz)'],['ok','Handy geprüft: 4 Größen'],['ok','Kopfzeile 1081–1600 px ok'],['ok','0 Konsolenfehler'],['ok','alles kostenlos (Unlimited)'],['ok','13 Unterseiten']];
+const P = [
+  ['Ein Ofen. Sieben Schichten.','ok','Wie Panel 1. Neben „Die Schichten entdecken“ steht ein zweiter Knopf „Kaufen oder bauen lassen?“, damit die Seite für Kaminverkäufer und Ofenbauer passt.'],
+  ['Explosionsansicht','ok','Wie Panel 2. Beim Scrollen wandert der Ofen in die Mitte und zerlegt sich, 7 Haarlinien zeichnen sich nacheinander, jede führt auf ihre Unterseite. Am Handy nummerierte Punkte plus Karte unten. Der echte Zerlegungs-Film kommt noch (Videoplatz).'],
+  ['Ein Ofen. Ihr Stil.','ok','Wie Panel 3. Speckstein, Keramik oder Stahl antippen: Der gewählte Ofen leuchtet, die anderen treten zurück, darunter Werte zu Material, Wärme und Pflege.'],
+  ['Brennraum / Sekundärluft','warn','Wie Panel 4, die Luftpfeile laufen animiert über das Foto. Zusätzlich echte Grenzwerte der 1. BImSchV Stufe 2 als Balken. Die Pfeile liegen über dem Bild statt im Ofen wie im Storyboard.'],
+  ['Stein speichert Zeit.','ok','Wie Panel 5. Die Kurve zeichnet sich beim Reinscrollen, zum Vergleich gestrichelt ein Stahlofen ohne Speicher.'],
+  ['Passt er rein?','ok','Wie Panel 6 mit Maßlinien 80 / 50 / 30 cm. Neu: eigenes Raumfoto wählen und den Ofen darauf schieben und skalieren, das Foto bleibt auf dem Gerät.'],
+  ['Welcher Ofen passt zu Ihnen?','ok','Wie Panel 7, rechnet mit echten Faustwerten (W pro m² nach Gebäude), dazu der Vergleich Holz / Pellet / Gas mit Fotos.'],
+  ['Wir bauen ihn wieder zusammen.','ok','Wie Panel 8. Danach große Kinetik-Typo (Ausbildung, Werkstatt-Crew, Meister) und die Bewerbung in 60 Sekunden. Davor neu: „Aussuchen oder bauen lassen“ und der Ablauf in 6 Schritten.'],
+  ['Echte Momente. Lange Wärme.','warn','Wie Panel 9, Termin-Formular mit Wunschtag. Die Stimmen sind als „Beispiel · noch keine echte Bewertung“ markiert, ohne Sterne und Namen (im Storyboard mit Namen).']];
+document.getElementById('stand').textContent = STAND;
+document.getElementById('status').innerHTML = STATUS.map(([c,t])=>`<span class="pill ${c}">${t}</span>`).join('');
+document.getElementById('pages').innerHTML = P.map(([t,c,n],i)=>`<article class="ch"><div class="ch-h"><span class="n">PANEL ${i+1}</span><h3>${t}</h3></div><div class="grid">
+<figure><img loading="lazy" src="${i+1}-storyboard.jpg" alt="Storyboard Panel ${i+1}: ${t}"><figcaption>Storyboard</figcaption></figure>
+<figure><img loading="lazy" src="${i+1}-desktop.jpg" alt="Seite am Laptop: ${t}"><figcaption>Laptop 1600 px</figcaption></figure>
+<figure><img loading="lazy" src="${i+1}-handy.jpg" alt="Seite am Handy: ${t}"><figcaption>Handy 390 px</figcaption></figure></div>
+<p class="note ${c==='warn'?'warn':''}">${n}</p></article>`).join('');
+const lb = document.getElementById('lb'), li = document.getElementById('lbimg');
+document.addEventListener('click', e => { const im = e.target.closest('figure img'); if (im) { li.src = im.src; li.alt = im.alt; lb.hidden = false; } else if (!lb.hidden) lb.hidden = true; });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.hidden = true; });
+document.getElementById('copy').addEventListener('click', async e => { const t = document.getElementById('embed').textContent; try { await navigator.clipboard.writeText(t); e.target.textContent = 'Kopiert'; } catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('embed')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); e.target.textContent = 'Markiert – jetzt kopieren'; } });
+</script>
