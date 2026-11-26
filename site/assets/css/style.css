@@ -19,6 +19,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .skip{position:absolute;left:-999px;top:8px;z-index:99;background:var(--or);color:var(--on-or);padding:10px 14px}
 .skip:focus{left:8px}
 :focus-visible{outline:2px solid var(--or);outline-offset:3px}
+[hidden]{display:none!important}
 
 /* Typo */
 .h1,.h2{font-family:var(--serif);font-weight:380;font-variation-settings:"opsz" 120;color:var(--or);letter-spacing:-.015em;margin:0}
@@ -136,7 +137,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .zahl-karte b{font-family:var(--serif);font-weight:400;font-size:40px;color:var(--or);line-height:1.1}
 .zahl-karte i{font-style:normal}
 .bimsch{max-width:440px;margin-bottom:16px}
-.balken{display:grid;grid-template-columns:130px 1fr auto;gap:12px;align-items:center;font-size:14px;margin:8px 0}
+.balken{display:grid;grid-template-columns:160px 1fr auto;gap:12px;align-items:center;font-size:14px;margin:8px 0}
 .balken i{height:6px;border-radius:3px;background:rgba(var(--or-rgb),.12);position:relative;overflow:hidden}
 .balken i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--or);transform-origin:left;transform:scaleX(var(--s,0));transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
 .bimsch.an .balken i::after{--s:1}
@@ -145,7 +146,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* 5 Speicher */
 .speicher{display:grid;grid-template-columns:42% 1fr;grid-template-rows:auto auto auto auto;column-gap:clamp(24px,4vw,64px);min-height:100vh;background:var(--bg);padding:0 var(--rand) 56px 0;align-items:start}
 .speicher-bild{grid-row:1/5;position:relative;height:100%;min-height:100vh}
-.speicher-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+.speicher-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:6% 50%}
 .speicher-text{padding-top:calc(var(--kopf) + 40px)}
 .speicher-text p{color:var(--ink2);max-width:44ch}
 .kurve{margin:10px 0 0;max-width:620px}
@@ -167,10 +168,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 .platz{position:relative;display:grid;grid-template-columns:minmax(300px,34%) 1fr;min-height:100vh;align-items:center}
 .platz-bild{grid-column:1/-1;grid-row:1;position:relative;height:100%;min-height:100vh;overflow:hidden}
 .platz-bild>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.platz::before{content:"";grid-column:1/-1;grid-row:1;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(var(--bg-rgb),.96) 0,rgba(var(--bg-rgb),.85) 30%,rgba(var(--bg-rgb),0) 52%)}
+.platz-bild::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(var(--bg-rgb),.96) 0,rgba(var(--bg-rgb),.85) 26%,rgba(var(--bg-rgb),0) 38%)}
 .masse{position:absolute;inset:0;width:100%;height:100%;z-index:1}
 .mass line{stroke:var(--or);stroke-width:.18;marker-start:none}
-.mass text{font:600 1.35px var(--sans);fill:var(--or)}
+.mass text{font:600 1.35px var(--sans);fill:var(--or);paint-order:stroke;stroke:rgba(var(--bg-rgb),.9);stroke-width:.35px}
 .mass line{stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset 1.2s}
 .mass text{opacity:0;transition:opacity .6s .8s}
 .platz.an .mass line{stroke-dashoffset:0}.platz.an .mass text{opacity:1}
@@ -207,7 +208,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .brenn{display:flex;gap:6px;justify-content:center;margin:22px 0 14px}
 .brenn button{min-height:44px;padding:0 22px;border-radius:999px;border:1px solid var(--line);background:transparent}
 .brenn button[aria-selected=true]{background:var(--or);color:var(--on-or);border-color:var(--or)}
-.brenn-bild{height:110px;border-radius:12px;overflow:hidden;margin-bottom:14px}
+.brenn-bild{height:150px;border-radius:12px;overflow:hidden;margin-bottom:14px}
 .brenn-bild img{width:300%;max-width:none;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .vgl{text-align:left;font-size:14px}
 .vgl div{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:center;margin:9px 0}
@@ -228,10 +229,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 .weg p{color:var(--ink2)}
 .weg ul{padding-left:18px;font-size:14.5px}
 .weg.vorn{order:-1}
-.ablauf{margin-top:64px;overflow:hidden}
-.ablauf-spur{display:flex;gap:18px;padding:0 var(--rand);width:max-content}
-.schritt{width:min(300px,76vw);flex:none;border-top:2px solid var(--or);padding-top:16px;font-size:14.5px}
-.schritt i{font:400 34px var(--serif);color:var(--or);font-style:normal;display:block}
+.ablauf{margin-top:64px;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,5vh,56px);padding:calc(var(--kopf) + 10px) 0 40px;background:var(--bg2)}
+.ablauf-kopf{padding:0 var(--rand)}
+.ablauf-spur{display:flex;align-items:flex-end;gap:clamp(18px,3vw,44px);padding:0 var(--rand);width:max-content}
+.schritt{width:min(320px,78vw);flex:none;border-top:2px solid var(--or);padding-top:16px;font-size:15px;align-self:flex-end}
+.schritt i{font:300 clamp(64px,8vw,112px)/1 var(--serif);color:var(--or);font-style:normal;display:block}
 .schritt b{display:block;font-weight:600;margin:4px 0}
 .schritt span{color:var(--ink2)}
 .schritt.foto{width:min(420px,82vw)}
@@ -321,7 +323,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   .symbole{grid-template-columns:1fr}
   .platz{grid-template-columns:1fr}
   .platz-bild{grid-row:1;min-height:62vh;height:62vh}
-  .platz::before{display:none}
+  .platz-bild::after{display:none}
   .platz-text{grid-row:2;padding-top:28px}
   .rechner{grid-template-columns:1fr;padding-top:calc(var(--kopf) + 30px)}
   .wege-spalten{grid-template-columns:1fr}
@@ -341,3 +343,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rein{opacity:1;transform:none}}
 .stil-bild::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--bg-rgb),.94) 0,rgba(var(--bg-rgb),.8) 26%,rgba(var(--bg-rgb),0) 44%);pointer-events:none}
 @media (max-width:900px){.stil-bild::after{display:none}}
+@media (max-width:900px){.achsen text,.k-leg text{font-size:21px}.k-leg circle{r:8px}.kurve svg{overflow:visible}}
+.hw-text{top:50vh;top:50svh}
+.hw-bild img,.hw-bild video{object-position:62% 22%}
+@media (max-width:900px){.hw-text{top:94svh;bottom:auto;transform:translateY(-100%)}.hw-bild img,.hw-bild video{object-position:64% 30%}}
+@media (max-width:900px){.ablauf{min-height:0;padding-top:20px}.ablauf-spur{padding-bottom:10px}}

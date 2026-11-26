@@ -22,5 +22,77 @@
   ],
   "lap_vorher": 812,
   "lap_nachher": 1757
+ },
+ "feuer": {
+  "px": [
+   2560,
+   1440
+  ],
+  "lap_vorher": 358,
+  "lap_nachher": 747
+ },
+ "speicher": {
+  "px": [
+   2560,
+   1440
+  ],
+  "lap_vorher": 300,
+  "lap_nachher": 627
+ },
+ "werkstatt": {
+  "px": [
+   2560,
+   1440
+  ],
+  "lap_vorher": 256,
+  "lap_nachher": 525
+ },
+ "ausstellung": {
+  "px": [
+   2560,
+   1440
+  ],
+  "lap_vorher": 801,
+  "lap_nachher": 1667
+ },
+ "rohr": {
+  "px": [
+   2048,
+   1136
+  ],
+  "lap_vorher": 115,
+  "lap_nachher": 260
+ },
+ "kachelofen": {
+  "px": [
+   2560,
+   1440
+  ],
+  "lap_vorher": 1067,
+  "lap_nachher": 2309
+ },
+ "raum": {
+  "px": [
+   3584,
+   2016
+  ],
+  "lap_vorher": 713,
+  "lap_nachher": 1195
+ },
+ "abend": {
+  "px": [
+   3584,
+   2016
+  ],
+  "lap_vorher": 414,
+  "lap_nachher": 736
+ },
+ "brennstoffe": {
+  "px": [
+   2560,
+   1440
+  ],
+  "lap_vorher": 542,
+  "lap_nachher": 1190
  }
 }

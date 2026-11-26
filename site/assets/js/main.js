@@ -126,8 +126,6 @@
     const mobil = innerWidth < 900;
     linien.forEach(({ l, ln, c }, i) => { const an = i < n; l.classList.toggle('zeig', mobil ? i === n - 1 : an); punkte[i].classList.toggle('zeig', an); punkte[i].classList.toggle('aktiv', i === n - 1); const L = +ln.dataset.len || 0; ln.style.strokeDasharray = 300; ln.style.strokeDashoffset = an ? 0 : 300; ln.style.transition = 'stroke-dashoffset .7s'; c.style.opacity = an ? 1 : 0; });
     hinweis.style.opacity = n >= labs.length ? Math.max(0, 1 - (p - 0.86) * 12) : 0;
-    const out = gsap.utils.clamp(0, 1, (p - 0.93) / 0.07);
-    pin.style.opacity = 1 - out * 0.9;
   }
   buehneST = ScrollTrigger.create({ trigger: '.buehne', start: 'top top', end: 'bottom bottom', scrub: true, onUpdate: st => buehne(st.progress) });
   buehne(0);
@@ -171,7 +169,7 @@
     gsap.from('.k-stein-f', { opacity: 0, duration: 1.6, delay: 0.8 }); gsap.from('.k-stahl', { opacity: 0, duration: 1 });
   } });
   if (!RM) {
-    $$('.h2, .stil-text>p, .feuer-text>p, .speicher-text p, .symbole li, .regeln li, .weg, .schritt, .kinetik p, .as-text>*').forEach(el => el.classList.add('rein'));
+    $$('.h2, .stil-text>p, .feuer-text>p, .speicher-text p, .symbole li, .regeln li, .weg, .schritt, .kinetik p, .as-text>*').forEach(el => { if (!el.closest('#ablauf')) el.classList.add('rein'); });
     ScrollTrigger.batch('.rein', { start: 'top 88%', once: true, onEnter: els => els.forEach((e, i) => setTimeout(() => e.classList.add('da'), i * 80)) });
     gsap.fromTo('.feuer-bild img', { scale: 1.15 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.feuer', start: 'top bottom', end: 'center center', scrub: true } });
     gsap.fromTo('.speicher-bild img', { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.speicher', start: 'top bottom', end: 'bottom top', scrub: true } });
@@ -229,7 +227,7 @@
   mm.add('(min-width: 901px)', () => {
     if (RM) return;
     const dist = () => Math.max(0, spur.scrollWidth - innerWidth + 40);
-    gsap.to(spur, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '#ablauf', start: 'center center', end: () => '+=' + dist(), scrub: 0.6, pin: true, invalidateOnRefresh: true } });
+    gsap.to(spur, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '#ablauf', start: 'top top', end: () => '+=' + dist(), scrub: 0.6, pin: true, invalidateOnRefresh: true } });
   });
   mm.add('(max-width: 900px)', () => { $('#ablauf').style.overflowX = 'auto'; });
 
