@@ -94,5 +94,29 @@
   ],
   "lap_vorher": 542,
   "lap_nachher": 1190
+ },
+ "grundofen-bau": {
+  "px": [
+   2048,
+   1136
+  ],
+  "lap_vorher": 260,
+  "lap_nachher": 619
+ },
+ "abnahme": {
+  "px": [
+   2048,
+   1136
+  ],
+  "lap_vorher": 239,
+  "lap_nachher": 518
+ },
+ "glas": {
+  "px": [
+   2048,
+   1136
+  ],
+  "lap_vorher": 167,
+  "lap_nachher": 373
  }
 }

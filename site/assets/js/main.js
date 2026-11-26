@@ -88,7 +88,7 @@
     const ox = (W - dw) / 2, oy = (H - dh) / 2;
     EX.s = mob ? 1 : 0.86; EX.ty = mob ? 0 : H * 0.045;
     linien.forEach(({ l, ln, c }, i) => {
-      if (mob) { const qx = ox + (+l.dataset.x / 100) * dw, qy = oy + (+l.dataset.y / 100) * dh; punkte[i].style.left = (qx - 14) + 'px'; punkte[i].style.top = (qy - 14) + 'px'; ['top', 'left', 'right', 'maxWidth', 'textAlign'].forEach(k => l.style[k] = ''); return; }
+      if (mob) { const qx = ox + (+l.dataset.x / 100) * dw, qy = oy + (+l.dataset.y / 100) * dh; punkte[i].style.left = (qx - 22) + 'px'; punkte[i].style.top = (qy - 22) + 'px'; ['top', 'left', 'right', 'maxWidth', 'textAlign'].forEach(k => l.style[k] = ''); return; }
       const px = W / 2 + (ox + (+l.dataset.x / 100) * dw - W / 2) * EX.s, py = H / 2 + (oy + (+l.dataset.y / 100) * dh - H / 2) * EX.s + EX.ty;
       const links = l.dataset.side === 'l';
       const gap = mob ? 10 : Math.min(160, W * 0.1);
@@ -175,7 +175,7 @@
     gsap.fromTo('.speicher-bild img', { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.speicher', start: 'top bottom', end: 'bottom top', scrub: true } });
     gsap.fromTo('.as-bild img', { scale: 1.1 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.ausstellung', start: 'top bottom', end: 'top top', scrub: true } });
     // Kinetik: jede Zeile fährt einzeln herein
-    $$('.kinetik p').forEach((p, i) => gsap.fromTo(p.querySelector('b'), { xPercent: i % 2 ? 30 : -30, opacity: 0 }, { xPercent: 0, opacity: 1, ease: 'power3.out', scrollTrigger: { trigger: p, start: 'top 92%', end: 'top 55%', scrub: 0.6 } }));
+    $$('.kinetik p').forEach((p, i) => gsap.fromTo(p.querySelector('b'), { xPercent: (i % 2 ? 1 : -1) * (innerWidth < 900 ? 8 : 30), opacity: 0 }, { xPercent: 0, opacity: 1, ease: 'power3.out', scrollTrigger: { trigger: p, start: 'top 92%', end: 'top 55%', scrub: 0.6 } }));
   }
 
   /* ---------- 6: Passt er rein? ---------- */
