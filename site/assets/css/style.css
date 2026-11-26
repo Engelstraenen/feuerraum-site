@@ -120,7 +120,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* 4 Feuer */
 .feuer{display:grid;grid-template-columns:58% 1fr;min-height:100vh;align-items:center;background:var(--bg)}
 .feuer-bild{position:relative;height:100%;min-height:100vh;overflow:hidden}
-.feuer-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feuer-bild img,.feuer-bild video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feuer-bild video{z-index:1}
 .luft{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .luft path{fill:none;stroke-width:3;stroke-dasharray:6 8;stroke-linecap:round}
 .luft-p{color:#8fb3d6;stroke:#8fb3d6}
@@ -236,11 +237,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 .schritt i{font:300 clamp(64px,8vw,112px)/1 var(--serif);color:var(--or);font-style:normal;display:block}
 .schritt b{display:block;font-weight:600;margin:4px 0}
 .schritt span{color:var(--ink2)}
-.schritt.foto{width:min(420px,82vw)}
+.schritt.foto{width:min(400px,80vw)}
 .schritt.foto img{border-radius:12px;aspect-ratio:16/9;object-fit:cover;margin-bottom:12px}
 
 /* 8 Handwerk */
-.handwerk{position:relative;background:#2a2125;color:#f4ece6;overflow:hidden}
+.handwerk{position:relative;background:#2a2125;color:#f4ece6;overflow:clip}
 .hw-bild{position:relative;height:100vh;height:100svh}
 .hw-bild img,.hw-bild video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
 .hw-bild::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--bg-rgb),.95) 0,rgba(var(--bg-rgb),.8) 30%,rgba(var(--bg-rgb),0) 55%)}
@@ -363,3 +364,27 @@ button{font:inherit;color:inherit;cursor:pointer}
   .ablauf::after{content:"← wischen →";display:block;text-align:center;font-size:14px;color:var(--ink2);margin-top:6px}
 }
 @media (max-width:900px){.tage{flex-wrap:wrap;overflow:visible}}
+
+/* Karriere: Specksteinplatten stapeln sich (Schicht für Schicht) */
+.stapel{height:340vh;position:relative}
+.stapel-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(260px,34%) 1fr;align-items:center;padding:var(--kopf) var(--rand) 40px;background:radial-gradient(ellipse 60% 50% at 66% 30%,rgba(255,120,40,var(--glow,0)) 0,rgba(255,120,40,0) 70%),#2a2125}
+.stapel-h{font:350 clamp(44px,6vw,96px)/.95 var(--serif);color:#f4ece6;margin:0 0 20px;letter-spacing:-.02em}
+.stapel-text .vorzeile{color:#d7b6c9}
+.stapel-zahl{font:300 22px var(--serif);color:#bfaeb6;margin:0}.stapel-zahl b{font-weight:400;font-size:56px;color:#f4ece6}
+.stapel-buehne{position:relative;height:min(78vh,720px);display:flex;flex-direction:column-reverse;justify-content:flex-start;align-items:center}
+.platte{position:relative;width:min(620px,100%);margin-top:-6px;padding:clamp(16px,2.4vh,26px) clamp(20px,3vw,36px);border-radius:14px;color:#1f1a1c;
+  background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0) 40%,rgba(0,0,0,.18)),url(../img/mat-speckstein-m.webp) center/cover,linear-gradient(120deg,#9a9c97,#7b7e79 45%,#a3a59f);
+  box-shadow:0 -1px 0 rgba(255,255,255,.35) inset,0 18px 30px -16px rgba(0,0,0,.7);opacity:0;will-change:transform}
+.platte span{display:block;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#2d2629;opacity:.8}
+.platte b{display:block;font:400 clamp(26px,3.4vw,52px)/1.05 var(--serif);color:#1d1719;letter-spacing:-.01em}
+.platte em{display:block;font-style:normal;font-size:15px;color:#2d2629;margin-top:4px}
+.glut{position:absolute;left:50%;bottom:calc(100% - 40px);width:min(520px,90%);height:160px;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 100%,rgba(255,150,60,.85),rgba(255,90,20,.35) 40%,rgba(255,90,20,0) 70%);filter:blur(18px);opacity:0;pointer-events:none}
+.glut{display:none}
+.platte[data-i="3"]::before{content:"";position:absolute;left:8%;right:8%;bottom:100%;height:150px;background:radial-gradient(ellipse at 50% 100%,rgba(255,160,70,.9),rgba(255,90,20,.35) 45%,rgba(255,90,20,0) 72%);filter:blur(14px);opacity:var(--g,0);pointer-events:none}
+@media (max-width:900px){
+  .stapel-pin{grid-template-columns:1fr;align-content:center;gap:18px}
+  .stapel-buehne{height:auto;min-height:56vh}
+  .stapel-h{font-size:40px;margin-bottom:6px}.stapel-zahl b{font-size:36px}
+  .platte b{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){.platte{opacity:1}.stapel{height:auto}.stapel-pin{position:relative;height:auto}}

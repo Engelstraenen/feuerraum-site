@@ -54,7 +54,7 @@
 
   /* ---------- Kopfzeile + Faden ---------- */
   const kopf = $('#kopf'), fill = $('#fadenFill');
-  const dunkle = $$('.handwerk .kinetik, .handwerk .bewerbung, .ausstellung, .fuss');
+  const dunkle = $$('.stapel, .handwerk .bewerbung, .ausstellung, .fuss');
   function kopfUpdate() {
     kopf.classList.toggle('fest', scrollY > 40);
     const y = kopf.offsetHeight / 2; let d = false;
@@ -174,8 +174,6 @@
     gsap.fromTo('.feuer-bild img', { scale: 1.15 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.feuer', start: 'top bottom', end: 'center center', scrub: true } });
     gsap.fromTo('.speicher-bild img', { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.speicher', start: 'top bottom', end: 'bottom top', scrub: true } });
     gsap.fromTo('.as-bild img', { scale: 1.1 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.ausstellung', start: 'top bottom', end: 'top top', scrub: true } });
-    // Kinetik: jede Zeile fährt einzeln herein
-    $$('.kinetik p').forEach((p, i) => gsap.fromTo(p.querySelector('b'), { xPercent: (i % 2 ? 1 : -1) * (innerWidth < 900 ? 8 : 30), opacity: 0 }, { xPercent: 0, opacity: 1, ease: 'power3.out', scrollTrigger: { trigger: p, start: 'top 92%', end: 'top 55%', scrub: 0.6 } }));
   }
 
   /* ---------- 6: Passt er rein? ---------- */
@@ -230,6 +228,25 @@
     gsap.to(spur, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '#ablauf', start: 'top top', end: () => '+=' + dist(), scrub: 0.6, pin: true, invalidateOnRefresh: true } });
   });
   mm.add('(max-width: 900px)', () => { $('#ablauf').style.overflowX = 'auto'; });
+
+  /* ---------- 8a: Platten stapeln sich (Schicht für Schicht) ---------- */
+  (() => {
+    const pl = $$('.platte'), nr = $('#stapelNr'), glut = $('.glut'), pin = $('.stapel-pin');
+    if (!pl.length) return;
+    if (RM) { pl.forEach(p => p.style.opacity = 1); nr.textContent = 4; return; }
+    const tl = gsap.timeline({ scrollTrigger: { trigger: '#stapel', start: 'top top', end: 'bottom bottom', scrub: 0.8,
+      onUpdate: () => { nr.textContent = Math.max(0, Math.min(4, Math.floor(tl.time() / 1.05 + 0.45))); } } });
+    pl.forEach((p, i) => {
+      const seite = i % 2 ? 1 : -1;
+      tl.fromTo(p, { opacity: 0, x: () => seite * innerWidth * 0.6, y: -160, rotation: seite * 6 },
+        { opacity: 1, x: 0, y: 0, rotation: 0, duration: 1, ease: 'power3.out' }, i * 1.05)
+        .to(pl.slice(0, i), { y: 3, duration: 0.15, ease: 'power1.inOut', yoyo: true, repeat: 1 }, i * 1.05 + 0.85);
+    });
+    tl.to(pl[3], { '--g': 1, duration: 0.8 }, 4.3).to(pin, { '--glow': 0.22, duration: 0.8 }, 4.3);
+  })();
+
+  /* ---------- 4: Feuer-Film (Schleife, nur sichtbar abspielen) ---------- */
+  if (VID.feuer) { const v = $('.feuer-film'); v.src = VID.feuer; v.hidden = false; ScrollTrigger.create({ trigger: '.feuer', start: 'top 85%', end: 'bottom 15%', onToggle: s => s.isActive ? v.play().catch(() => {}) : v.pause() }); }
 
   /* ---------- 8: Karriere-Film + Bewerbung ---------- */
   if (VID.werkstatt) { const v = $('.hw-film'); v.src = VID.werkstatt; v.hidden = false; ScrollTrigger.create({ trigger: '.handwerk', start: 'top 80%', end: 'bottom top', onToggle: s => s.isActive ? v.play().catch(() => {}) : v.pause() }); }

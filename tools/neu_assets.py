@@ -18,7 +18,8 @@ RAW = os.path.join(ROOT, "assets-roh", "neu")
 OUT = os.path.join(ROOT, "site", "assets", "img")
 NAMES = {"FE01": "hero", "FE02": "explode", "FE03": "stil", "FE04": "feuer", "FE05": "speicher", "FE06": "raum",
          "FE07": "werkstatt", "FE08": "abend", "FE09": "kachelofen", "FE10": "grundofen-bau", "FE11": "abnahme",
-         "FE12": "ausstellung", "FE13": "brennstoffe", "FE14": "glas", "FE15": "rohr", "FE16": "ofen-frei"}
+         "FE12": "ausstellung", "FE13": "brennstoffe", "FE14": "glas", "FE15": "rohr", "FE16": "ofen-frei", "FE17": "mat-speckstein", "FE18": "mat-keramik", "FE19": "mat-stahl", "FE20": "mat-putz",
+         "FE21": "schritt-beratung", "FE22": "schritt-aufmass", "FE23": "schritt-abstimmung", "FE24": "schritt-feuer"}
 os.makedirs(RAW, exist_ok=True); os.makedirs(OUT, exist_ok=True)
 
 

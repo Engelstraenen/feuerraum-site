@@ -32,6 +32,11 @@
         ['Stahl', 'Pulverbeschichtet, meist in Schwarz oder Grau. Wird schnell warm und wirkt besonders klar.'],
         ['Gemauert und verputzt', 'Bei gebauten Öfen sind fast alle Oberflächen möglich: Kalkputz, Lehm, Naturstein oder Kacheln nach Ihrem Entwurf.']],
       dia: { titel: 'Eigenschaften im Vergleich', zeilen: [['Speicherwirkung Speckstein', .85, 'hoch'], ['Speicherwirkung Keramik', .6, 'mittel'], ['Speicherwirkung Stahl', .2, 'gering'], ['Aufheizen Stahl', .95, 'sehr schnell']] },
+      material: [
+        { key: 'speckstein', name: 'Speckstein', satz: 'Natürlich. Zeitlos.', text: 'Naturstein mit eigener Maserung. Wird warm, aber nicht heiß, und gibt die Wärme über Stunden ab.', gut: 'Lange Abende, wenig Nachlegen', werte: [5, 2, 4, 2] },
+        { key: 'keramik', name: 'Keramik', satz: 'Klar. Elegant.', text: 'Glasierte Ofenkeramik mit seidigem Glanz. Milde Strahlungswärme, sehr leicht zu reinigen.', gut: 'Helle Räume, pflegeleicht', werte: [4, 3, 5, 4] },
+        { key: 'stahl', name: 'Stahl', satz: 'Pur. Charakterstark.', text: 'Pulverbeschichteter Stahl mit klarer Kante. Wird schnell warm und bringt die Wärme sofort in den Raum.', gut: 'Schnelle Wärme, klare Architektur', werte: [1, 5, 4, 2] },
+        { key: 'putz', ofen: 'kachel', name: 'Kachel & Putz', satz: 'Gebaut. Einzigartig.', text: 'Für gebaute Öfen: Kalkputz, Lehm oder Kacheln nach Ihrem Entwurf, mit Sitzbank, Nische oder Holzlager.', gut: 'Grundofen, Kachelofen, Unikate', werte: [5, 1, 3, 5] }],
       faq: [['Kann ich die Verkleidung später tauschen?', 'Bei manchen Modellen ja. Wir sagen Ihnen vorher, welche Varianten es für Ihr Modell gibt.']] },
     brennraum: { nr: '05', vor: 'Schicht 05 · Brennraum', titel: 'Feuer, gut geführt.', bild: 'feuer', anker: 'feuer',
       lead: 'Der Brennraum ist das Herz des Ofens. Eine Auskleidung aus Schamotte oder Vermiculite hält die Temperatur hoch – die Voraussetzung für saubere Verbrennung.',
@@ -104,6 +109,17 @@
   h += d.bild ? `<section class="u-held"><img src="assets/img/${d.bild}.webp" srcset="assets/img/${d.bild}-m.webp 1280w, assets/img/${d.bild}.webp 2560w" sizes="100vw" alt="" onerror="this.remove()">` : '<section class="u-held ohne">';
   h += `<div class="u-titel"><p class="vorzeile">${esc(d.vor)}</p><h1 class="h2">${esc(d.titel)}</h1><p class="u-lead">${esc(d.lead)}</p></div></section>`;
   if (d.fakten) h += '<section class="u-fakten">' + d.fakten.map(([a, b]) => `<div><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('') + '</section>';
+  if (d.material) {
+    const K = ['Speicherwärme', 'Schnell warm', 'Pflegeleicht', 'Gestaltung'];
+    const pkt = n => '<span class="pkt" aria-hidden="true">' + [1, 2, 3, 4, 5].map(i => `<i class="${i <= n ? 'an' : ''}"></i>`).join('') + '</span>';
+    h += '<section class="mat"><div class="mat-kopf"><p class="vorzeile">Vier Oberflächen</p><h2 class="h2">Fühlen Sie den Unterschied.</h2><p>Antippen zeigt den Ofen im jeweiligen Material.</p></div><div class="mat-reihe">' + d.material.map((m, i) => `
+      <article class="mat-karte" tabindex="0" aria-label="${esc(m.name)}">
+        <div class="mat-bild"><img class="mat-nah" src="assets/img/mat-${m.key}-m.webp" alt="Nahaufnahme ${esc(m.name)}" loading="lazy" onerror="this.closest('.mat-karte').classList.add('ohne-nah');this.remove()"><img class="mat-ofen" src="assets/img/ofen-${m.ofen || m.key}.webp" alt="Ofen mit Verkleidung aus ${esc(m.name)}" loading="lazy"><span class="mat-nr">0${i + 1}</span><span class="mat-tipp">Am Ofen ansehen</span></div>
+        <h3>${esc(m.name)}</h3><p class="mat-satz">${esc(m.satz)}</p><p class="mat-text">${esc(m.text)}</p>
+        <dl>${K.map((k, j) => `<div><dt>${k}</dt><dd>${pkt(m.werte[j])}<span class="sr">${m.werte[j]} von 5</span></dd></div>`).join('')}</dl>
+        <p class="mat-gut"><b>Gut für</b> ${esc(m.gut)}</p>
+      </article>`).join('') + '</div></section>';
+  }
   if (d.text) {
     h += '<section class="u-inhalt"><div>' + d.text.map(([t, p]) => `<h2>${esc(t)}</h2><p>${esc(p)}</p>`).join('');
     if (d.bild2) h += `<img src="assets/img/${d.bild2}-m.webp" alt="" style="border-radius:16px;margin-top:28px;aspect-ratio:16/9;object-fit:cover;width:100%" onerror="this.remove()">`;
@@ -116,6 +132,7 @@
   if (i >= 0) { const p = REIHE[(i + 6) % 7], n = REIHE[(i + 1) % 7]; h += `<nav class="u-weiter" aria-label="Weitere Schichten"><a href="schicht.html?s=${p}${ks ? '&' + ks : ''}"><span>← Schicht ${S[p].nr}</span><b>${esc(S[p].vor.split('· ')[1])}</b></a><a href="schicht.html?s=${n}${ks ? '&' + ks : ''}"><span>Schicht ${S[n].nr} →</span><b>${esc(S[n].vor.split('· ')[1])}</b></a></nav>`; }
   document.getElementById('u').innerHTML = h;
   if (firma) document.querySelectorAll('[data-firma]').forEach(e => e.textContent = firma);
+  document.querySelectorAll('.mat-karte').forEach(k => { const f = () => k.classList.toggle('am-ofen'); k.addEventListener('click', f); k.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); f(); } }); });
   const dia = document.getElementById('dia');
   if (dia) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { dia.classList.add('an'); io.disconnect(); } }), { threshold: .3 }); io.observe(dia); }
 })();

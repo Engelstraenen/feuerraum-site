@@ -101,19 +101,13 @@
 <!-- 4: Brennraum -->
 <section class="feuer" id="feuer" aria-labelledby="feuer-h">
   <div class="feuer-bild">
+    <video class="feuer-film" muted playsinline loop preload="none" hidden></video>
     <img src="assets/img/feuer.webp" srcset="assets/img/feuer-m.webp 1280w, assets/img/feuer.webp 2560w" sizes="max(100vw, 178vh)" alt="Brennraum mit Flammen und Schamotteauskleidung" loading="lazy">
-    <svg class="luft" viewBox="0 0 600 600" aria-hidden="true">
-      <defs><marker id="pf" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
-      <path class="luft-p" d="M80 540 C 200 560, 380 560, 520 540" marker-end="url(#pf)"/>
-      <path class="luft-s" d="M520 90 C 380 60, 220 60, 90 90" marker-end="url(#pf)"/>
-      <path class="luft-s2" d="M560 300 C 620 300, 660 300, 700 300" marker-end="url(#pf)"/>
-    </svg>
-    <div class="luft-karte primaer"><b>Primärluft</b><span>Von unten, für eine saubere und kontrollierte Vorverbrennung.</span></div>
   </div>
   <div class="feuer-text">
     <p class="vorzeile">Schicht 03 · Technik</p>
     <h2 class="h2" id="feuer-h">Sekundärluft</h2>
-    <p>Vorgewärmte Luft strömt über die Scheibe und von hinten in die Flamme. Sie verbrennt die Holzgase ein zweites Mal – für weniger Emissionen und eine klare Scheibe.</p>
+    <p>Primärluft von unten bringt das Feuer in Gang. Vorgewärmte Sekundärluft strömt über die Scheibe und von hinten in die Flamme und verbrennt die Holzgase ein zweites Mal – für weniger Emissionen und eine klare Scheibe.</p>
     <div class="zahl-karte"><span>Wirkungsgrad</span><b>über <i data-zaehl="80">0</i> %</b></div>
     <div class="bimsch">
       <p class="mini">Grenzwerte 1. BImSchV Stufe 2 für Kaminöfen (seit 2015)</p>
@@ -242,12 +236,12 @@
   <div class="ablauf" id="ablauf" aria-label="Ablauf in sechs Schritten">
     <div class="ablauf-kopf"><p class="vorzeile">Ihr Weg zum ersten Feuer</p><h3 class="h2">Sechs Schritte.<br>Ein Ansprechpartner.</h3></div>
     <div class="ablauf-spur" id="ablaufSpur">
-      <div class="schritt"><i>1</i><b>Beratung</b><span>In der Ausstellung oder mit Fotos Ihres Raums.</span></div>
-      <div class="schritt"><i>2</i><b>Aufmaß &amp; Schornstein</b><span>Wir messen, prüfen Zug und Querschnitt des Schornsteins.</span></div>
-      <div class="schritt"><i>3</i><b>Abstimmung</b><span>Vorab mit dem bevollmächtigten Bezirksschornsteinfeger.</span></div>
+      <div class="schritt foto"><img src="assets/img/schritt-beratung-m.webp" alt="Beraterin zeigt einem Paar Fotos ihres Wohnzimmers und Materialproben" loading="lazy"><i>1</i><b>Beratung</b><span>In der Ausstellung oder mit Fotos Ihres Raums.</span></div>
+      <div class="schritt foto"><img src="assets/img/schritt-aufmass-m.webp" alt="Ofenbauer misst eine Raumecke mit dem Laser aus" loading="lazy"><i>2</i><b>Aufmaß &amp; Schornstein</b><span>Wir messen, prüfen Zug und Querschnitt des Schornsteins.</span></div>
+      <div class="schritt foto"><img src="assets/img/schritt-abstimmung-m.webp" alt="Ofenbauer und Schornsteinfeger besprechen die Abgasführung am Tablet" loading="lazy"><i>3</i><b>Abstimmung</b><span>Vorab mit dem bevollmächtigten Bezirksschornsteinfeger.</span></div>
       <div class="schritt foto"><img src="assets/img/grundofen-bau-m.webp" alt="Ofenbauer setzt Schamottesteine für einen Grundofen" loading="lazy"><i>4</i><b>Einbau</b><span>Kaminofen meist an einem Tag, gebaute Öfen in einigen Tagen.</span></div>
       <div class="schritt foto"><img src="assets/img/abnahme-m.webp" alt="Schornsteinfeger misst mit digitalem Abgasmessgerät" loading="lazy"><i>5</i><b>Abnahme</b><span>Der Schornsteinfeger nimmt die Anlage vor dem ersten Feuer ab.</span></div>
-      <div class="schritt"><i>6</i><b>Erstes Feuer &amp; Wartung</b><span>Einweisung beim ersten Anheizen, danach jährlicher Service.</span></div>
+      <div class="schritt foto"><img src="assets/img/schritt-feuer-m.webp" alt="Ofenbauer zeigt der Hausbesitzerin das erste Anheizen" loading="lazy"><i>6</i><b>Erstes Feuer &amp; Wartung</b><span>Einweisung beim ersten Anheizen, danach jährlicher Service.</span></div>
     </div>
   </div>
 </section>
@@ -263,11 +257,21 @@
     <p>Echtes Handwerk. Moderne Technik. Und die Freude, die bleibt, wenn das erste Feuer in einem Ofen brennt, den du gebaut hast.</p>
     <a class="knopf" href="#bewerbung">Bewerbung in 60 Sekunden</a>
   </div>
-  <div class="kinetik" aria-label="Was wir bieten">
-    <p><span>Ausbildung zum</span><b>Ofen- und Luftheizungsbauer</b></p>
-    <p><span>Feste</span><b>Werkstatt-Crew</b></p>
-    <p><span>Jeden Tag ein</span><b>anderes Zuhause</b></p>
-    <p><span>Weiter zum</span><b>Meister</b></p>
+  <div class="stapel" id="stapel" aria-label="Was wir bieten">
+    <div class="stapel-pin">
+      <div class="stapel-text">
+        <p class="vorzeile">Deine Ausbildung</p>
+        <h3 class="stapel-h">Schicht<br>für Schicht.</h3>
+        <p class="stapel-zahl"><b id="stapelNr">0</b> / 4</p>
+      </div>
+      <div class="stapel-buehne">
+        <div class="glut" aria-hidden="true"></div>
+        <div class="platte" data-i="0"><span>Ausbildung zum</span><b>Ofen- und Luftheizungsbauer</b><em>3 Jahre dual, Handwerkskammer</em></div>
+        <div class="platte" data-i="1"><span>Feste</span><b>Werkstatt-Crew</b><em>eigene Werkstatt, Firmenwagen, Werkzeug</em></div>
+        <div class="platte" data-i="2"><span>Jeden Tag ein</span><b>anderes Zuhause</b><em>Montage beim Kunden statt Fließband</em></div>
+        <div class="platte" data-i="3"><span>Weiter zum</span><b>Meister</b><em>berufsbegleitend, wir unterstützen dich</em></div>
+      </div>
+    </div>
   </div>
   <form class="bewerbung" id="bewerbung" aria-label="Bewerbung in 60 Sekunden" novalidate>
     <div class="bw-schritt aktiv" data-i="0">
