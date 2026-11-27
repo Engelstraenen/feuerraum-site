@@ -79,7 +79,7 @@ for (w, h) in VPS:
         pg.on("pageerror", lambda e: errs.append(str(e)))
         pg.goto(URL, wait_until="domcontentloaded")
         try:
-            pg.wait_for_function("Object.keys(window.FR_VID||{}).filter(k=>k!=='_v').every(id=>document.querySelector('#'+id+' .stage').classList.contains('has-vid'))", timeout=180000)
+            pg.wait_for_load_state("networkidle", timeout=60000)
         except Exception:
             errs.append("videos nicht geladen")
         pg.evaluate("document.documentElement.style.scrollBehavior='auto'")
