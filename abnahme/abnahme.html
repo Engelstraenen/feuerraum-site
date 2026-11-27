@@ -56,17 +56,17 @@ button{font:600 14px var(--f-b);min-height:44px;padding:0 18px;border-radius:999
 </div>
 <div class="lb" id="lb" hidden><img id="lbimg" alt=""></div>
 <script>
-const STAND = '26.11.2026';
-const STATUS = [['ok','16 Fotos (2× 4K, 14× 2K), alle nachgeschärft'],['warn','Filme: 0 von 2 (Explosion + Werkstatt warten auf den Videoplatz)'],['ok','Handy geprüft: 4 Größen'],['ok','Kopfzeile 1081–1600 px ok'],['ok','0 Konsolenfehler'],['ok','alles kostenlos (Unlimited)'],['ok','13 Unterseiten']];
+const STAND = '27.11.2026';
+const STATUS = [['ok','24 Fotos (2× 4K, 22× 2K), alle nachgeschärft'],['ok','Filme: 3 von 3 (Explosion als Scroll-Film, Feuer-Schleife, Werkstatt)'],['ok','Handy geprüft: 4 Größen'],['ok','Kopfzeile 1081–1600 px ok'],['ok','0 Konsolenfehler'],['ok','alles kostenlos (Unlimited)'],['ok','13 Unterseiten']];
 const P = [
   ['Ein Ofen. Sieben Schichten.','ok','Wie Panel 1. Neben „Die Schichten entdecken“ steht ein zweiter Knopf „Kaufen oder bauen lassen?“, damit die Seite für Kaminverkäufer und Ofenbauer passt.'],
-  ['Explosionsansicht','ok','Wie Panel 2. Beim Scrollen wandert der Ofen in die Mitte und zerlegt sich, 7 Haarlinien zeichnen sich nacheinander, jede führt auf ihre Unterseite. Am Handy nummerierte Punkte plus Karte unten. Der echte Zerlegungs-Film kommt noch (Videoplatz).'],
+  ['Explosionsansicht','ok','Wie Panel 2. Beim Scrollen wandert der Ofen in die Mitte und zerlegt sich, 7 Haarlinien zeichnen sich nacheinander, jede führt auf ihre Unterseite. Am Handy nummerierte Punkte plus Karte unten. Am Laptop spult Scrollen den echten Zerlegungs-Film (startet exakt auf dem Hero, endet exakt auf der Explosionsansicht).'],
   ['Ein Ofen. Ihr Stil.','ok','Wie Panel 3. Speckstein, Keramik oder Stahl antippen: Der gewählte Ofen leuchtet, die anderen treten zurück, darunter Werte zu Material, Wärme und Pflege.'],
-  ['Brennraum / Sekundärluft','warn','Wie Panel 4, die Luftpfeile laufen animiert über das Foto. Zusätzlich echte Grenzwerte der 1. BImSchV Stufe 2 als Balken. Die Pfeile liegen über dem Bild statt im Ofen wie im Storyboard.'],
+  ['Brennraum / Sekundärluft','ok','Wie Panel 4, links läuft ein echter Feuer-Film als Schleife (Eugens Wunsch statt der Luftpfeile). Rechts echte Grenzwerte der 1. BImSchV Stufe 2 als Balken.'],
   ['Stein speichert Zeit.','ok','Wie Panel 5. Die Kurve zeichnet sich beim Reinscrollen, zum Vergleich gestrichelt ein Stahlofen ohne Speicher.'],
   ['Passt er rein?','ok','Wie Panel 6 mit Maßlinien 80 / 50 / 30 cm. Neu: eigenes Raumfoto wählen und den Ofen darauf schieben und skalieren, das Foto bleibt auf dem Gerät.'],
   ['Welcher Ofen passt zu Ihnen?','ok','Wie Panel 7, rechnet mit echten Faustwerten (W pro m² nach Gebäude), dazu der Vergleich Holz / Pellet / Gas mit Fotos.'],
-  ['Wir bauen ihn wieder zusammen.','ok','Wie Panel 8. Danach große Kinetik-Typo (Ausbildung, Werkstatt-Crew, Meister) und die Bewerbung in 60 Sekunden. Davor neu: „Aussuchen oder bauen lassen“ und der Ablauf in 6 Schritten.'],
+  ['Wir bauen ihn wieder zusammen.','ok','Wie Panel 8, der Werkstatt-Film läuft beim Reinscrollen. Danach stapeln sich vier Specksteinplatten „Schicht für Schicht“ (Ausbildung, Werkstatt-Crew, anderes Zuhause, Meister) bis oben die Glut aufleuchtet, dann die Bewerbung in 60 Sekunden. Davor: „Aussuchen oder bauen lassen“ und der Ablauf in 6 Schritten mit Foto je Schritt.'],
   ['Echte Momente. Lange Wärme.','warn','Wie Panel 9, Termin-Formular mit Wunschtag. Die Stimmen sind als „Beispiel · noch keine echte Bewertung“ markiert, ohne Sterne und Namen (im Storyboard mit Namen).']];
 document.getElementById('stand').textContent = STAND;
 document.getElementById('status').innerHTML = STATUS.map(([c,t])=>`<span class="pill ${c}">${t}</span>`).join('');
